@@ -1392,34 +1392,52 @@ Public Class detilsosmed
 
     Private Sub Channel_Facebook()       
         div_sla.Visible = False
-        sql = "select * from v_allsosmed where idTbl = '" & Request.QueryString("IDREF") & "'"
         Try
-            sqldr = Sosmed.ExecuteReader(sql)
-            lbl_nama_customer.Text = sqldr("Name").ToString
-            lbl_customer.Text = sqldr("Name").ToString
-            lbl_date.Text = sqldr("ddate").ToString
-            lbl_message.Text = sqldr("TextNya").ToString
-            Session("source") = sqldr("dSource").ToString
+            Dim selectfacebook As String = "select * from v_allsosmed where idTbl = '" & Request.QueryString("IDREF") & "'"
+            Com = New SqlCommand(selectfacebook, Con)
+            Con.Open()
+            Dr = Com.ExecuteReader()
+            Dr.Read()
+            lbl_nama_customer.Text = Dr("Name").ToString
+            lbl_customer.Text = Dr("Name").ToString
+            lbl_date.Text = Dr("ddate").ToString
+            lbl_message.Text = Dr("TextNya").ToString
+            Session("source") = Dr("dSource").ToString
         Catch ex As Exception
             Response.Write(ex.Message)
         End Try
-        sqldr.Close()
+        Dr.Close()
+        Con.Close()
+        cmb_source_type.Value = "Facebook"
+        get_Dropdown()
+        txt_message.Visible = False
+        modal_dispatch_satu.Visible = False
+        div_sla.Visible = False
     End Sub
 
     Private Sub Channel_Twitter()
         div_sla.Visible = False
-        sql = "select * from v_allsosmed where idTbl = '" & Request.QueryString("IDREF") & "'"
         Try
-            sqldr = Sosmed.ExecuteReader(sql)
-            lbl_nama_customer.Text = sqldr("Name").ToString
-            lbl_customer.Text = sqldr("Name").ToString
-            lbl_date.Text = sqldr("ddate").ToString
-            lbl_message.Text = sqldr("TextNya").ToString
-            Session("source") = sqldr("dSource").ToString
+            Dim selectfacebook As String = "select * from v_allsosmed where idTbl = '" & Request.QueryString("IDREF") & "'"
+            Com = New SqlCommand(selectfacebook, Con)
+            Con.Open()
+            Dr = Com.ExecuteReader()
+            Dr.Read()
+            lbl_nama_customer.Text = Dr("Name").ToString
+            lbl_customer.Text = Dr("Name").ToString
+            lbl_date.Text = Dr("ddate").ToString
+            lbl_message.Text = Dr("TextNya").ToString
+            Session("source") = Dr("dSource").ToString
         Catch ex As Exception
             Response.Write(ex.Message)
         End Try
-        sqldr.Close()
+        Dr.Close()
+        Con.Close()
+        cmb_source_type.Value = "Twitter"
+        get_Dropdown()
+        txt_message.Visible = False
+        modal_dispatch_satu.Visible = False
+        div_sla.Visible = False
     End Sub
 
     Function Reply_Posting(ByVal Type As String, ByVal TicketNumber As String, ByVal Message As String, ByVal Account As String)
