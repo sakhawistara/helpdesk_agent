@@ -1395,11 +1395,11 @@ Public Class detilsosmed
         sql = "select * from v_allsosmed where idTbl = '" & Request.QueryString("IDREF") & "'"
         Try
             sqldr = Sosmed.ExecuteReader(sql)
-            lbl_nama_customer.Text = Dr("Name").ToString
-            lbl_customer.Text = Dr("Name").ToString
-            lbl_date.Text = Dr("ddate").ToString
-            lbl_message.Text = Dr("TextNya").ToString
-            Session("source") = Dr("dSource").ToString
+            lbl_nama_customer.Text = sqldr("Name").ToString
+            lbl_customer.Text = sqldr("Name").ToString
+            lbl_date.Text = sqldr("ddate").ToString
+            lbl_message.Text = sqldr("TextNya").ToString
+            Session("source") = sqldr("dSource").ToString
         Catch ex As Exception
             Response.Write(ex.Message)
         End Try
@@ -1411,11 +1411,11 @@ Public Class detilsosmed
         sql = "select * from v_allsosmed where idTbl = '" & Request.QueryString("IDREF") & "'"
         Try
             sqldr = Sosmed.ExecuteReader(sql)
-            lbl_nama_customer.Text = Dr("Name").ToString
-            lbl_customer.Text = Dr("Name").ToString
-            lbl_date.Text = Dr("ddate").ToString
-            lbl_message.Text = Dr("TextNya").ToString
-            Session("source") = Dr("dSource").ToString
+            lbl_nama_customer.Text = sqldr("Name").ToString
+            lbl_customer.Text = sqldr("Name").ToString
+            lbl_date.Text = sqldr("ddate").ToString
+            lbl_message.Text = sqldr("TextNya").ToString
+            Session("source") = sqldr("dSource").ToString
         Catch ex As Exception
             Response.Write(ex.Message)
         End Try
