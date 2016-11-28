@@ -1,0 +1,19 @@
+D:\ICC\ICC\bin\ICC.dll
+D:\ICC\ICC\bin\ICC.pdb
+D:\ICC\ICC\bin\ICC.xml
+D:\ICC\ICC\obj\Debug\ICC.Resources.resources
+D:\ICC\ICC\obj\Debug\ICC.vbproj.GenerateResource.Cache
+D:\ICC\ICC\obj\Debug\ICC.dll.licenses
+D:\ICC\ICC\obj\Debug\ICC.dll
+D:\ICC\ICC\obj\Debug\ICC.xml
+D:\ICC\ICC\obj\Debug\ICC.pdb
+D:\ICC\ICC\obj\Debug\ICC.vbprojResolveAssemblyReference.cache
+D:\Revosetori ICC\ICC\ICC\bin\ICC.dll
+D:\Revosetori ICC\ICC\ICC\bin\ICC.pdb
+D:\Revosetori ICC\ICC\ICC\bin\ICC.xml
+D:\Revosetori ICC\ICC\ICC\obj\Debug\ICC.Resources.resources
+D:\Revosetori ICC\ICC\ICC\obj\Debug\ICC.vbproj.GenerateResource.Cache
+D:\Revosetori ICC\ICC\ICC\obj\Debug\ICC.dll.licenses
+D:\Revosetori ICC\ICC\ICC\obj\Debug\ICC.dll
+D:\Revosetori ICC\ICC\ICC\obj\Debug\ICC.xml
+D:\Revosetori ICC\ICC\ICC\obj\Debug\ICC.pdb

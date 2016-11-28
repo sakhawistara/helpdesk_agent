@@ -1,0 +1,57 @@
+2016-11-14 11:51:06 AM :  | Error Cari Data | Fax Inbox | select * from v_txfaxin1 order by datetime desc | fax
+2016-11-14 11:51:21 AM :  | Error Cari Data | Fax Inbox | select * from v_txfaxin1 order by datetime desc | fax
+2016-11-14 11:51:21 AM :  | Open Menu | Fax Inbox |  | fax
+14/11/2016 11:52:28 :  | Error Cari Data | Fax Inbox | select * from v_txfaxin1 order by datetime desc | fax
+2016-11-14 11:52:49 AM :  | Error Cari Data | Fax Inbox | select * from v_txfaxin1 order by datetime desc | fax
+14/11/2016 11:52:49 :  | Error Cari Data | Fax Inbox | select * from v_txfaxin1 order by datetime desc | fax
+14/11/2016 11:52:49 :  | Open Menu | Fax Inbox |  | fax
+2016-11-14 11:53:41 AM :  | Error Cari Data | Fax Inbox | select * from v_txfaxin1 order by datetime desc | fax
+2016-11-14 11:54:04 AM :  | Error Cari Data | Fax Inbox | select * from v_txfaxsend order by DDate desc | fax
+2016-11-14 11:54:56 AM :  | Error Cari Data | Fax Inbox | select * from v_txfaxsend order by DDate desc | fax
+2016-11-14 11:54:56 AM :  | Open Menu | Fax Inbox |  | fax
+2016-11-14 11:56:10 AM :  | Error Cari Data | Fax Inbox | select * from v_txfaxin1 order by datetime desc | fax
+2016-11-14 11:56:31 AM :  | Error Cari Data | Fax Inbox | select * from v_txfaxin1 order by datetime desc | fax
+2016-11-14 11:57:44 AM :  | Error Cari Data | Fax Inbox | select * from v_txfaxin1 order by datetime desc | fax
+2016-11-14 11:58:33 AM :  | Error Cari Data | Fax Inbox | select * from v_txfaxin1 order by datetime desc | fax
+2016-11-14 11:59:34 AM :  | Error Cari Data | Fax Inbox | select * from v_txfaxsend order by DDate desc | fax
+2016-11-14 11:59:55 AM :  | Error Cari Data | Fax Inbox | select * from v_txfaxsend order by DDate desc | fax
+2016-11-14 12:01:08 PM :  | Error Cari Data | Fax Inbox | select * from v_txfaxsend order by DDate desc | fax
+2016-11-14 12:01:57 PM :  | Error Cari Data | Fax Inbox | select * from v_txfaxsend order by DDate desc | fax
+2016-11-14 12:02:58 PM :  | Error Cari Data | Fax Inbox | select * from v_txfaxsend order by DDate desc | fax
+2016-11-14 12:03:19 PM :  | Error Cari Data | Fax Inbox | select * from v_txfaxsend order by DDate desc | fax
+2016-11-14 12:04:33 PM :  | Error Cari Data | Fax Inbox | select * from v_txfaxsend order by DDate desc | fax
+2016-11-14 12:05:22 PM :  | Error Cari Data | Fax Inbox | select * from v_txfaxsend order by DDate desc | fax
+2016-11-14 12:06:23 PM :  | Error Cari Data | Fax Inbox | select * from v_txfaxsend order by DDate desc | fax
+2016-11-14 12:06:44 PM :  | Error Cari Data | Fax Inbox | select * from v_txfaxsend order by DDate desc | fax
+2016-11-14 12:07:57 PM :  | Error Cari Data | Fax Inbox | select * from v_txfaxsend order by DDate desc | fax
+2016-11-14 12:08:46 PM :  | Error Cari Data | Fax Inbox | select * from v_txfaxsend order by DDate desc | fax
+2016-11-14 12:09:47 PM :  | Error Cari Data | Fax Inbox | select * from v_txfaxsend order by DDate desc | fax
+2016-11-14 12:10:08 PM :  | Error Cari Data | Fax Inbox | select * from v_txfaxsend order by DDate desc | fax
+2016-11-14 12:11:21 PM :  | Error Cari Data | Fax Inbox | select * from v_txfaxsend order by DDate desc | fax
+2016-11-14 12:12:12 PM :  | Error Cari Data | Fax Inbox | select * from v_txfaxsend order by DDate desc | fax
+2016-11-14 12:12:41 PM :  | Error Cari Data | Fax Inbox | select * from v_txfaxsend order by DDate desc | fax
+2016-11-14 12:13:33 PM :  | Error Cari Data | Fax Inbox | select * from v_txfaxsend order by DDate desc | fax
+2016-11-14 12:14:46 PM :  | Error Cari Data | Fax Inbox | select * from v_txfaxsend order by DDate desc | fax
+2016-11-14 12:15:07 PM :  | Error Cari Data | Fax Inbox | select * from v_txfaxsend order by DDate desc | fax
+2016-11-14 12:16:20 PM :  | Error Cari Data | Fax Inbox | select * from v_txfaxsend order by DDate desc | fax
+2016-11-14 12:17:09 PM :  | Error Cari Data | Fax Inbox | select * from v_txfaxsend order by DDate desc | fax
+2016-11-14 12:18:10 PM :  | Error Cari Data | Fax Inbox | select * from v_txfaxsend order by DDate desc | fax
+2016-11-14 12:18:31 PM :  | Error Cari Data | Fax Inbox | select * from v_txfaxsend order by DDate desc | fax
+2016-11-14 12:19:45 PM :  | Error Cari Data | Fax Inbox | select * from v_txfaxsend order by DDate desc | fax
+2016-11-14 12:20:34 PM :  | Error Cari Data | Fax Inbox | select * from v_txfaxsend order by DDate desc | fax
+2016-11-14 12:21:35 PM :  | Error Cari Data | Fax Inbox | select * from v_txfaxin1 order by datetime desc | fax
+2016-11-14 12:21:56 PM :  | Error Cari Data | Fax Inbox | select * from v_txfaxin1 order by datetime desc | fax
+2016-11-14 12:23:09 PM :  | Error Cari Data | Fax Inbox | select * from v_txfaxsend order by DDate desc | fax
+2016-11-14 12:23:59 PM :  | Error Cari Data | Fax Inbox | select * from v_txfaxsend order by DDate desc | fax
+2016-11-14 12:24:28 PM :  | Error Cari Data | Fax Inbox | select * from v_txfaxsend order by DDate desc | fax
+2016-11-14 12:25:20 PM :  | Error Cari Data | Fax Inbox | select * from v_txfaxsend order by DDate desc | fax
+2016-11-14 12:26:34 PM :  | Error Cari Data | Fax Inbox | select * from v_txfaxsend order by DDate desc | fax
+2016-11-14 12:26:55 PM :  | Error Cari Data | Fax Inbox | select * from v_txfaxsend order by DDate desc | fax
+2016-11-14 12:28:08 PM :  | Error Cari Data | Fax Inbox | select * from v_txfaxsend order by DDate desc | fax
+2016-11-14 12:28:57 PM :  | Error Cari Data | Fax Inbox | select * from v_txfaxsend order by DDate desc | fax
+2016-11-14 12:29:58 PM :  | Error Cari Data | Fax Inbox | select * from v_txfaxsend order by DDate desc | fax
+2016-11-14 12:30:19 PM :  | Error Cari Data | Fax Inbox | select * from v_txfaxsend order by DDate desc | fax
+2016-11-14 12:31:32 PM :  | Error Cari Data | Fax Inbox | select * from v_txfaxsend order by DDate desc | fax
+2016-11-14 12:32:23 PM :  | Error Cari Data | Fax Inbox | select * from v_txfaxsend order by DDate desc | fax
+2016-11-14 12:32:52 PM :  | Error Cari Data | Fax Inbox | select * from v_txfaxsend order by DDate desc | fax
+2016-11-14 12:33:44 PM :  | Error Cari Data | Fax Inbox | select * from v_txfaxsend order by DDate desc | fax
