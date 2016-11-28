@@ -1,0 +1,36 @@
+18/11/2016 10:27:39 : --Send Email Ticket No Aktif--
+18/11/2016 10:27:39 : Date Create   :18/11/2016 10:27:39
+18/11/2016 10:27:39 : Ticket Number : Berhasil di insert
+18/11/2016 10:27:39 : Customer Id   :140314
+18/11/2016 10:32:25 : --Send Email Ticket No Aktif--
+18/11/2016 10:32:25 : Date Create   :18/11/2016 10:32:25
+18/11/2016 10:32:25 : Ticket Number :Email-222-00000076 Berhasil di insert
+18/11/2016 10:32:25 : Customer Id   :140314
+18/11/2016 10:44:41 : --Send Email Ticket No Aktif--
+18/11/2016 10:44:41 : Date Create   :18/11/2016 10:44:41
+18/11/2016 10:44:41 : Ticket Number :Sms-222-00000077 Berhasil di insert
+18/11/2016 10:44:41 : Customer Id   :50314
+18/11/2016 14:04:36 : --Send Email Ticket No Aktif--
+18/11/2016 14:04:36 : Date Create   :18/11/2016 14:04:36
+18/11/2016 14:04:36 : Ticket Number :Email-222-00000079 Berhasil di insert
+18/11/2016 14:04:36 : Customer Id   :140314
+2016-11-18 02:16:02 PM : --Send Email Ticket No Aktif--
+2016-11-18 02:16:02 PM : Date Create   :2016-11-18 02:16:02 PM
+2016-11-18 02:16:02 PM : Ticket Number :Email-210-00000080 Berhasil di insert
+2016-11-18 02:16:02 PM : Customer Id   :140314
+18/11/2016 14:18:29 : --Send Email Ticket No Aktif--
+18/11/2016 14:18:29 : Date Create   :18/11/2016 14:18:29
+18/11/2016 14:18:29 : Ticket Number :Email-210-00000081 Berhasil di insert
+18/11/2016 14:18:29 : Customer Id   :140314
+18/11/2016 21:09:15 : --Send Email Ticket No Aktif--
+18/11/2016 21:09:15 : Date Create   :18/11/2016 21:09:15
+18/11/2016 21:09:15 : Ticket Number :Chat-210-00000082 Berhasil di insert
+18/11/2016 21:09:15 : Customer Id   :140314
+18/11/2016 21:48:25 : --Send Email Ticket No Aktif--
+18/11/2016 21:48:25 : Date Create   :18/11/2016 21:48:25
+18/11/2016 21:48:25 : Ticket Number :Sms-210-00000083 Berhasil di insert
+18/11/2016 21:48:25 : Customer Id   :50314
+2016-11-18 09:56:00 PM : --Send Email Ticket No Aktif--
+2016-11-18 09:56:00 PM : Date Create   :2016-11-18 09:56:00 PM
+2016-11-18 09:56:00 PM : Ticket Number :Sms-210-00000084 Berhasil di insert
+2016-11-18 09:56:00 PM : Customer Id   :50314

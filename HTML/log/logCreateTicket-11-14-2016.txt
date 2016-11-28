@@ -1,0 +1,18 @@
+14/11/2016 13:33:10 : --START--
+14/11/2016 13:33:10 : --14/11/2016 13:33:10--
+14/11/2016 13:33:10 : TicketNumber Email-210-00000063Sudah Ada di tCloseTicket
+14/11/2016 15:53:35 : --START--
+14/11/2016 15:53:35 : --14/11/2016 15:53:35--
+14/11/2016 15:53:35 : TicketNumber Twitter--00000064Sudah Ada di tCloseTicket
+14/11/2016 15:57:14 : --START--
+14/11/2016 15:57:14 : --14/11/2016 15:57:14--
+14/11/2016 15:57:14 : TicketNumber Twitter-222-00000065Sudah Ada di tCloseTicket
+14/11/2016 16:04:25 : --START--
+14/11/2016 16:04:25 : --14/11/2016 16:04:25--
+14/11/2016 16:04:25 : TicketNumber Twitter-222-00000066Sudah Ada di tCloseTicket
+14/11/2016 16:14:46 : --START--
+14/11/2016 16:14:46 : --14/11/2016 16:14:46--
+14/11/2016 16:14:46 : TicketNumber Email-210-00000067Sudah Ada di tCloseTicket
+14/11/2016 16:37:05 : --START--
+14/11/2016 16:37:06 : --14/11/2016 16:37:06--
+14/11/2016 16:37:06 : TicketNumber Twitter-222-00000068Sudah Ada di tCloseTicket

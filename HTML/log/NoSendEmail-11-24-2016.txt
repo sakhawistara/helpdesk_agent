@@ -1,0 +1,36 @@
+24/11/2016 5:16:09 : --Send Email Ticket No Aktif--
+24/11/2016 5:16:09 : Date Create   :24/11/2016 5:16:09
+24/11/2016 5:16:09 : Ticket Number :Email-300-00000094 Berhasil di insert
+24/11/2016 5:16:09 : Customer Id   :140314
+24/11/2016 5:18:23 : --Send Email Ticket No Aktif--
+24/11/2016 5:18:23 : Date Create   :24/11/2016 5:18:23
+24/11/2016 5:18:23 : Ticket Number :Email-300-00000095 Berhasil di insert
+24/11/2016 5:18:23 : Customer Id   :140314
+24/11/2016 5:22:05 : --Send Email Ticket No Aktif--
+24/11/2016 5:22:05 : Date Create   :24/11/2016 5:22:05
+24/11/2016 5:22:05 : Ticket Number :Email-300-00000096 Berhasil di insert
+24/11/2016 5:22:05 : Customer Id   :140314
+24/11/2016 5:44:14 : --Send Email Ticket No Aktif--
+24/11/2016 5:44:14 : Date Create   :24/11/2016 5:44:14
+24/11/2016 5:44:14 : Ticket Number :Sms-300-00000098 Berhasil di insert
+24/11/2016 5:44:14 : Customer Id   :50314
+24/11/2016 7:01:34 : --Send Email Ticket No Aktif--
+24/11/2016 7:01:34 : Date Create   :24/11/2016 7:01:34
+24/11/2016 7:01:34 : Ticket Number :Sms-310-00000099 Berhasil di insert
+24/11/2016 7:01:34 : Customer Id   :50314
+24/11/2016 9:11:33 : --Send Email Ticket No Aktif--
+24/11/2016 9:11:33 : Date Create   :24/11/2016 9:11:33
+24/11/2016 9:11:33 : Ticket Number :Email-888-00000100 Berhasil di insert
+24/11/2016 9:11:33 : Customer Id   :140314
+24/11/2016 9:20:00 : --Send Email Ticket No Aktif--
+24/11/2016 9:20:00 : Date Create   :24/11/2016 9:20:00
+24/11/2016 9:20:00 : Ticket Number :Sms-310-00000101 Berhasil di insert
+24/11/2016 9:20:00 : Customer Id   :50314
+24/11/2016 9:22:09 : --Send Email Ticket No Aktif--
+24/11/2016 9:22:09 : Date Create   :24/11/2016 9:22:09
+24/11/2016 9:22:09 : Ticket Number :Sms-310-00000102 Berhasil di insert
+24/11/2016 9:22:09 : Customer Id   :50314
+24/11/2016 9:25:14 : --Send Email Ticket No Aktif--
+24/11/2016 9:25:14 : Date Create   :24/11/2016 9:25:14
+24/11/2016 9:25:14 : Ticket Number :Email-300-00000103 Berhasil di insert
+24/11/2016 9:25:14 : Customer Id   :140314

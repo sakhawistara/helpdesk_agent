@@ -1,0 +1,24 @@
+23/11/2016 20:50:02 : --Send Email Ticket No Aktif--
+23/11/2016 20:50:02 : Date Create   :23/11/2016 20:50:02
+23/11/2016 20:50:02 : Ticket Number :Chat-000-00000085 Berhasil di insert
+23/11/2016 20:50:02 : Customer Id   :140314
+23/11/2016 21:16:35 : --Send Email Ticket No Aktif--
+23/11/2016 21:16:35 : Date Create   :23/11/2016 21:16:35
+23/11/2016 21:16:35 : Ticket Number : Berhasil di insert
+23/11/2016 21:16:35 : Customer Id   :140314
+23/11/2016 21:18:37 : --Send Email Ticket No Aktif--
+23/11/2016 21:18:37 : Date Create   :23/11/2016 21:18:37
+23/11/2016 21:18:37 : Ticket Number :Email-000-00000086 Berhasil di insert
+23/11/2016 21:18:37 : Customer Id   :140314
+23/11/2016 22:16:09 : --Send Email Ticket No Aktif--
+23/11/2016 22:16:09 : Date Create   :23/11/2016 22:16:09
+23/11/2016 22:16:09 : Ticket Number :Email-310-00000091 Berhasil di insert
+23/11/2016 22:16:09 : Customer Id   :140314
+2016-11-23 10:22:20 PM : --Send Email Ticket No Aktif--
+2016-11-23 10:22:20 PM : Date Create   :2016-11-23 10:22:20 PM
+2016-11-23 10:22:20 PM : Ticket Number :Email-310-00000092 Berhasil di insert
+2016-11-23 10:22:20 PM : Customer Id   :140314
+23/11/2016 22:24:09 : --Send Email Ticket No Aktif--
+23/11/2016 22:24:09 : Date Create   :23/11/2016 22:24:09
+23/11/2016 22:24:09 : Ticket Number :Email-310-00000093 Berhasil di insert
+23/11/2016 22:24:09 : Customer Id   :140314

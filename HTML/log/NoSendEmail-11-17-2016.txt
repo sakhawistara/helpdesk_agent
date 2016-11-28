@@ -1,0 +1,8 @@
+17/11/2016 17:05:54 : --Send Email Ticket No Aktif--
+17/11/2016 17:05:54 : Date Create   :17/11/2016 17:05:54
+17/11/2016 17:05:54 : Ticket Number :Chat-222-00000074 Berhasil di insert
+17/11/2016 17:05:54 : Customer Id   :03491116
+17/11/2016 17:19:52 : --Send Email Ticket No Aktif--
+17/11/2016 17:19:52 : Date Create   :17/11/2016 17:19:52
+17/11/2016 17:19:52 : Ticket Number :Chat-222-00000075 Berhasil di insert
+17/11/2016 17:19:52 : Customer Id   :03491116

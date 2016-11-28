@@ -1,0 +1,18 @@
+24/11/2016 7:11:49 : --Start--
+24/11/2016 7:11:49 : UserName/Date : AGENT1/24/11/2016 7:11:49
+24/11/2016 7:11:49 : Ticket Number: Sms-300-00000098
+24/11/2016 7:11:49 : 24/11/2016 7:11:49-Error Select tTicket Get Status: Invalid attempt to call MetaData when reader is closed.
+24/11/2016 7:11:49 : Status Ticket: -24/11/2016 7:11:49
+24/11/2016 7:11:50 : Ticket berhasil di dispatch untuk pertama kalinya24/11/2016 7:11:50
+24/11/2016 7:11:50 : Ticket berada pada layer 1 dan akan di Dispatch ke layer 2
+24/11/2016 7:11:50 : Ticket berhasil di dispatch/reassign darilayer1 menuju :2
+24/11/2016 7:11:50 : --end--
+24/11/2016 9:25:39 : --Start--
+24/11/2016 9:25:39 : UserName/Date : AGENT1/24/11/2016 9:25:39
+24/11/2016 9:25:39 : Ticket Number: Email-300-00000103
+24/11/2016 9:25:39 : 24/11/2016 9:25:39-Error Select tTicket Get Status: Object reference not set to an instance of an object.
+24/11/2016 9:25:39 : Status Ticket: -24/11/2016 9:25:39
+24/11/2016 9:25:39 : Ticket berhasil di dispatch untuk pertama kalinya24/11/2016 9:25:39
+24/11/2016 9:25:39 : Ticket berada pada layer 1 dan akan di Dispatch ke layer 2
+24/11/2016 9:25:39 : Ticket berhasil di dispatch/reassign dari1 menuju :2
+24/11/2016 9:25:39 : --end--

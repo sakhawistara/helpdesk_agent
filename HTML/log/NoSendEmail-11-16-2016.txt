@@ -1,0 +1,16 @@
+2016-11-16 02:52:27 PM : --Send Email Ticket No Aktif--
+2016-11-16 02:52:30 PM : Date Create   :2016-11-16 02:52:29 PM
+2016-11-16 02:52:32 PM : Ticket Number :Chat-888-00000071 Berhasil di insert
+2016-11-16 02:52:35 PM : Customer Id   :2110314
+16/11/2016 15:00:06 : --Send Email Ticket No Aktif--
+16/11/2016 15:00:06 : Date Create   :16/11/2016 15:00:06
+16/11/2016 15:00:06 : Ticket Number :Chat-888-00000072 Berhasil di insert
+16/11/2016 15:00:06 : Customer Id   :2110314
+16/11/2016 15:02:00 : --Send Email Ticket No Aktif--
+16/11/2016 15:02:00 : Date Create   :16/11/2016 15:02:00
+16/11/2016 15:02:00 : Ticket Number :Chat-888-00000073 Berhasil di insert
+16/11/2016 15:02:00 : Customer Id   :2110314
+16/11/2016 15:58:25 : --Send Email Ticket No Aktif--
+16/11/2016 15:58:25 : Date Create   :16/11/2016 15:58:25
+16/11/2016 15:58:25 : Ticket Number : Berhasil di insert
+16/11/2016 15:58:25 : Customer Id   :2110314

@@ -1,0 +1,579 @@
+﻿<%@ Master Language="VB" AutoEventWireup="false" CodeBehind="Ticket.master.vb" Inherits="ICC.Ticket" %>
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Invision Agent Telesto</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Bootstrap core CSS -->
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link href="css/font-awesome.min.css" rel="stylesheet">
+
+    <!-- Pace -->
+    <link href="css/pace.css" rel="stylesheet">
+
+    <!-- Datatable -->
+    <link href="css/jquery.dataTables_themeroller.css" rel="stylesheet">
+
+    <!-- Color box -->
+    <link href="css/colorbox/colorbox.css" rel="stylesheet">
+
+    <!-- Morris -->
+    <link href="css/morris.css" rel="stylesheet" />
+
+    <!-- Endless -->
+    <link href="css/endless.min.css" rel="stylesheet">
+    <link href="css/endless-skin.css" rel="stylesheet">
+
+    <!-- Gritter -->
+    <link href="css/gritter/jquery.gritter.css" rel="stylesheet">
+
+    <asp:ContentPlaceHolder ID="FeaturedContent" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+
+<body class="overflow-hidden">
+    <form runat="server">
+
+        <!-- Overlay Div -->
+        <div id="overlay" class="transparent"></div>
+
+        <a href="" id="theme-setting-icon"><i class="fa fa-cog fa-lg"></i></a>
+        <div id="theme-setting">
+            <div class="title">
+                <strong class="no-margin">Skin Color</strong>
+            </div>
+            <div class="theme-box">
+                <a class="theme-color" style="background: #323447" id="default"></a>
+                <a class="theme-color" style="background: #efefef" id="skin-1"></a>
+                <a class="theme-color" style="background: #a93922" id="skin-2"></a>
+                <a class="theme-color" style="background: #3e6b96" id="skin-3"></a>
+                <a class="theme-color" style="background: #635247" id="skin-4"></a>
+                <a class="theme-color" style="background: #3a3a3a" id="skin-5"></a>
+                <a class="theme-color" style="background: #495B6C" id="skin-6"></a>
+            </div>
+            <div class="title">
+                <strong class="no-margin">Sidebar Menu</strong>
+            </div>
+            <div class="theme-box">
+                <label class="label-checkbox">
+                    <input type="checkbox" checked id="fixedSidebar">
+                    <span class="custom-checkbox"></span>
+                    Fixed Sidebar
+		
+                </label>
+            </div>
+        </div>
+        <!-- /theme-setting -->
+
+        <div id="wrapper" class="preload">
+            <div id="top-nav" class="fixed skin-6">
+                <a href="#" class="brand">
+                    <span>Invision Agent</span>
+                    <span class="text-toggle">Telesto 2.1</span>
+                </a>
+                <!-- /brand -->
+                <button type="button" class="navbar-toggle pull-left" id="sidebarToggle">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <button type="button" class="navbar-toggle pull-left hide-menu" id="menuToggle">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <asp:ScriptManager ID="ScriptManager1" runat="server" />
+                <asp:Panel ID="Panel1" runat="server" ScrollBars="None" BorderWidth="0"
+                    BorderColor="#336699">
+                    <asp:UpdatePanel runat="server" ID="UpdatePanel1" UpdateMode="Conditional" EnableViewState="false">
+                        <Triggers>
+                            <asp:AsyncPostBackTrigger ControlID="Timer1" EventName="Tick" />
+                        </Triggers>
+                        <ContentTemplate>
+                            <ul class="nav-notification clearfix">
+
+                                <asp:Timer ID="Timer1" runat="server" Interval="10000" Enabled="true" EnableViewState="false">
+                                </asp:Timer>
+                                <li class="dropdown">
+                                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                        <i class="fa fa-folder fa-lg" title="Inbox Ticket Dispatch"></i>
+                                        <span class="notification-label bounceIn animation-delay4">
+                                            <asp:Label ID="lbl_count_dispatch" runat="server"></asp:Label></span>                        </a>
+                                    <ul class="dropdown-menu notification dropdown-3">
+                                        <li><a href="#">
+                                            <asp:Label ID="lbl_keterangan" runat="server"></asp:Label></a></li>
+                                        <li>
+                                            <asp:Literal ID="ltr_ticket_dispatch" runat="server"></asp:Literal>
+                                        </li>
+                                        <li></li>
+                                    </ul>
+                                </li>
+
+                                <li class="profile dropdown">
+                                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                        <strong>
+                                            <asp:Label ID="lbl_user_login" runat="server"></asp:Label></strong>
+                                        <span><i class="fa fa-chevron-down"></i></span>
+                                    </a>
+                                    <ul class="dropdown-menu">
+                                        <li>
+                                            <a class="clearfix" href="#">
+                                                <img src="img/user.jpg" alt="User Avatar">
+                                                <div class="detail">
+                                                    <strong>
+                                                        <asp:Label ID="lbl_user_login_detail" runat="server"></asp:Label></strong>
+                                                    <p class="grey">
+                                                        <asp:Label ID="lbl_user_login_detail_nama" runat="server"></asp:Label>
+                                                    </p>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li class="divider"></li>
+                                        <li><a tabindex="-1" href="customer.aspx" class="main-link"><i class="fa fa-edit fa-lg"></i>&nbsp;Edit profile</a></li>
+                                        <%-- <li class="divider"></li>
+                                        <li><a tabindex="-1" class="main-link logoutConfirm_open" href="#logoutConfirm"><i class="fa fa-lock fa-lg"></i>&nbsp;Log out</a></li>--%>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a class="btn btn-sm pull-right logoutConfirm_open" href="#logoutConfirm">
+                                        <i class="fa fa-power-off"></i>
+                                    </a>
+                                </li>
+
+                            </ul>
+                        </ContentTemplate>
+                    </asp:UpdatePanel>
+                </asp:Panel>
+
+            </div>
+            <!-- /top-nav-->
+
+            <aside class="fixed skin-6">
+                <div class="sidebar-inner scrollable-sidebar">
+                    <div class="size-toggle">
+                        <a class="btn btn-sm" id="sizeToggle">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </a>
+
+                    </div>
+                    <!-- /size-toggle -->
+                    <%--<div class="user-block clearfix">
+                        <img src="img/logox.png" alt="User Avatar">
+                        <div class="detail">
+                            <strong>
+                                <asp:Label ID="lbl_user_profile" runat="server"></asp:Label></strong><span class="badge badge-danger bounceIn animation-delay4 m-left-xs">4</span>
+                            <ul class="list-inline">
+                                <li><a href="karyawan.aspx?user=<%# Session("username")%>">Profile</a></li>
+                                <li><a href="dashboard.aspx" class="no-margin">Dashboard</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- /user-block -->
+                    <div class="search-block">
+                        <div class="input-group">
+                            <input type="text" class="form-control input-sm" placeholder="Search here...">
+                            <span class="input-group-btn">
+                                <button class="btn btn-default btn-sm" type="button"><i class="fa fa-search"></i></button>
+                            </span>
+                        </div>
+                        <!-- /input-group -->
+                    </div>--%>
+                    <!-- /search-block -->
+                    <div class="main-menu">
+                        <asp:Literal  ID="ltr_Menu" runat="server"></asp:Literal>
+                      <%--  <asp:TextBox ID="txt_id" runat="server"></asp:TextBox>
+                        <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>--%>
+                        <asp:Literal  ID="ltr_SubMenu" runat="server"></asp:Literal>                       
+                        <div class="alert alert-info">
+                            Invision Astrindo Pratama				
+                        </div>
+                    </div>
+                    <!-- /main-menu -->
+                </div>
+                <!-- /sidebar-inner -->
+            </aside>
+
+            <div id="main-container">
+                <div class="padding-md">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="panel panel-default">
+                                <div class="panel-body" id="trafficWidget">
+                                    <asp:ContentPlaceHolder ID="MainContent" runat="server">
+                                    </asp:ContentPlaceHolder>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <!-- /.row -->
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="panel panel-default" style="visibility: hidden;">
+                                <div class="panel-body">
+                                    <div id="placeholder" class="graph" style="height: 250px"></div>
+                                </div>
+                            </div>
+                            <!-- /panel -->
+                        </div>
+                        <!-- /.col -->
+                        <div class="col-lg-4">
+                            <div class="panel bg-info fadeInDown animation-delay4" style="visibility: hidden;">
+                                <div class="panel-body">
+                                    <div id="lineChart" style="height: 150px;"></div>
+
+                                </div>
+                                <div class="panel-footer">
+                                    <div class="row">
+                                        <div class="col-xs-4">
+                                            Sales in June
+									
+                                        <strong class="block">$664</strong>
+                                        </div>
+                                        <!-- /.col -->
+                                        <div class="col-xs-4">
+                                            Sales in July
+									
+                                        <strong class="block">$731</strong>
+                                        </div>
+                                        <!-- /.col -->
+                                        <div class="col-xs-4">
+                                            Sales in August
+									
+                                        <strong class="block">$912</strong>
+                                        </div>
+                                        <!-- /.col -->
+                                    </div>
+                                    <!-- /.row -->
+                                </div>
+                            </div>
+                            <!-- /panel -->
+
+                            <div class="panel bg-success fadeInDown animation-delay5" style="visibility: hidden;">
+                                <div class="panel-body">
+                                    <div id="barChart" style="height: 150px;"></div>
+                                </div>
+
+                            </div>
+                            <!-- /panel -->
+
+                            <div class="panel bg-danger" style="visibility: hidden;">
+                                <div class="panel-body">
+                                </div>
+                            </div>
+                            <!-- /panel -->
+                            <div class="panel panel-default" style="visibility: hidden;">
+                                <div class="panel-body">
+                                    <div id="donutChart" style=": 250px;"></div>
+                                    <div class="panel-group" id="accordion">
+                                        <div class="panel panel-default">
+                                        </div>
+                                        <!-- panel -->
+                                        <div class="panel panel-default">
+                                        </div>
+                                        <!-- panel -->
+                                        <div class="panel panel-default">
+                                        </div>
+                                        <!-- panel -->
+                                    </div>
+                                    <!-- panel-group -->
+                                </div>
+                            </div>
+                            <!-- /panel -->
+                        </div>
+                        <!-- /.col -->
+                    </div>
+                </div>
+                <!-- /.padding-md -->
+            </div>
+            <!-- /main-container -->
+            <!-- Footer
+		================================================== -->
+            <footer>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <span class="footer-brand">
+                            <strong class="text-danger">Invision</strong> Helpdesk
+                        </span>
+                        <p class="no-margin">
+                            &copy; 2016 <strong>Invision Helpdesk</strong>. ALL Rights Reserved. 
+				
+                        </p>
+                    </div>
+                    <!-- /.col -->
+                </div>
+                <!-- /.row-->
+            </footer>
+
+
+            <!--Modal-->
+            <div class="modal fade" id="newFolder">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                            <h4>Create new folder</h4>
+                        </div>
+                        <div class="modal-body">
+                            <div class="form-group">
+                                <label for="folderName">Folder Name</label>
+                                <input type="text" class="form-control input-sm" id="folderName" placeholder="Folder name here...">
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button class="btn btn-sm btn-success" data-dismiss="modal" aria-hidden="true">Close</button>
+                            <a href="#" class="btn btn-danger btn-sm">Save changes</a>
+                        </div>
+                    </div>
+                    <!-- /.modal-content -->
+                </div>
+                <!-- /.modal-dialog -->
+            </div>
+            <!-- /.modal -->
+        </div>
+        <!-- /wrapper -->
+
+        <a href="" id="scroll-to-top" class="hidden-print"><i class="fa fa-chevron-up"></i></a>
+
+        <!-- Logout confirmation -->
+        <div class="custom-popup width-100" id="logoutConfirm">
+            <div class="padding-md">
+                <h4 class="m-top-none">Do you want to logout?</h4>
+            </div>
+
+            <div class="text-center">
+                <a class="btn btn-success m-right-sm" href="~/login.aspx" runat="server">Logout</a>
+                <%--   <asp:Button ID="btn_logout" runat="server" Text="Logout" CssClass="btn btn-success" />--%>
+                <a class="btn btn-danger logoutConfirm_close">Cancel</a>
+            </div>
+        </div>
+
+    </form>
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+
+    <!-- Jquery -->
+    <script src="js/jquery-1.10.2.min.js"></script>
+
+    <!-- Bootstrap -->
+    <script src="bootstrap/js/bootstrap.js"></script>
+
+    <!-- Datatable -->
+    <script src='js/jquery.dataTables.min.js'></script>
+
+    <!-- holder -->
+    <script src='js/uncompressed/holder.js'></script>
+    <!-- Gritter -->
+    <script src="js/jquery.gritter.min.js"></script>
+
+    <!-- Flot -->
+    <script src='js/jquery.flot.min.js'></script>
+
+    <!-- Morris -->
+    <script src='js/rapheal.min.js'></script>
+    <script src='js/morris.min.js'></script>
+
+    <!-- Colorbox -->
+    <script src='js/jquery.colorbox.min.js'></script>
+
+    <!-- Sparkline -->
+    <script src='js/jquery.sparkline.min.js'></script>
+
+    <!-- Pace -->
+    <script src='js/uncompressed/pace.js'></script>
+
+    <!-- Popup Overlay -->
+    <script src='js/jquery.popupoverlay.min.js'></script>
+
+    <!-- Slimscroll -->
+    <script src='js/jquery.slimscroll.min.js'></script>
+
+    <!-- Modernizr -->
+    <script src='js/modernizr.min.js'></script>
+
+    <!-- Cookie -->
+    <script src='js/jquery.cookie.min.js'></script>
+
+    <!-- Endless -->
+    <script src="js/endless/endless_dashboard.js"></script>
+    <script src="js/endless/endless.js"></script>
+
+    <!-- holder -->
+    <script src='js/uncompressed/holder.js'></script>
+    <!-- Gritter -->
+    <script src="js/jquery.gritter.min.js"></script>
+
+    <script>
+        $(function () {
+            //Gritter notification
+            $('#regular-notification').click(function () {
+                $.gritter.add({
+                    title: 'This is a regular notice!',
+                    text: 'This will fade out after a certain amount of time. Vivamus eget tincidunt velit. Cum sociis natoque penatibus et <a href="#" style="color:#ccc">magnis dis parturient</a> montes, nascetur ridiculus mus.',
+                    image: 'img/user.jpg',
+                    sticky: false,
+                    time: ''
+                });
+                return false;
+            });
+
+            $('#sticky-notification').click(function () {
+
+                var unique_id = $.gritter.add({
+                    title: 'This is a sticky notice!',
+                    text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus eget tincidunt velit. Cum sociis natoque penatibus et <a href="#">magnis dis parturient</a> montes, nascetur ridiculus mus.',
+                    image: 'img/user.jpg',
+                    sticky: true,
+                    time: '',
+                    class_name: 'my-sticky-class'
+                });
+
+                // You can have it return a unique id, this can be used to manually remove it later using
+                /*
+				setTimeout(function(){
+
+					$.gritter.remove(unique_id, {
+						fade: true,
+						speed: 'slow'
+					});
+						
+				}, 6000)
+				*/
+
+                return false;
+            });
+
+            $('#info-notification').click(function () {
+
+                $.gritter.add({
+                    title: '<i class="fa fa-info-circle"></i> This is a info notification',
+                    text: 'This will fade out after a certain amount of time. Vivamus eget tincidunt velit. Cum sociis natoque penatibus et <a href="#" style="color:#ccc">magnis dis parturient</a> montes, nascetur ridiculus mus.',
+                    sticky: false,
+                    time: '',
+                    class_name: 'gritter-info'
+                });
+                return false;
+            });
+
+            $('#success-notification').click(function () {
+
+                $.gritter.add({
+                    title: '<i class="fa fa-check-circle"></i> This is a success notification',
+                    text: 'This will fade out after a certain amount of time. Vivamus eget tincidunt velit. Cum sociis natoque penatibus et <a href="#">magnis dis parturient</a> montes, nascetur ridiculus mus.',
+                    sticky: false,
+                    time: '',
+                    class_name: 'gritter-success'
+                });
+                return false;
+            });
+
+            $('#warning-notification').click(function () {
+
+                $.gritter.add({
+                    title: '<i class="fa fa-warning"></i> This is a warning notification!',
+                    text: 'This will fade out after a certain amount of time. Vivamus eget tincidunt velit. Cum sociis natoque penatibus et <a href="#" style="color:#ccc">magnis dis parturient</a> montes, nascetur ridiculus mus.',
+                    sticky: false,
+                    time: '',
+                    class_name: 'gritter-warning'
+                });
+                return false;
+            });
+
+            $('#danger-notification').click(function () {
+
+                $.gritter.add({
+                    title: '<i class="fa fa-times-circle"></i> This is a error notification!',
+                    text: 'This will fade out after a certain amount of time. Vivamus eget tincidunt velit. Cum sociis natoque penatibus et <a href="#" style="color:#ccc">magnis dis parturient</a> montes, nascetur ridiculus mus.',
+                    sticky: false,
+                    time: '',
+                    class_name: 'gritter-danger'
+                });
+                return false;
+            });
+
+            $('#facebook-notification').click(function () {
+
+                $.gritter.add({
+                    title: '<i class="fa fa-times-circle"></i> This is a error notification!',
+                    text: 'This will fade out after a certain amount of time. Vivamus eget tincidunt velit. Cum sociis natoque penatibus et <a href="#" style="color:#ccc">magnis dis parturient</a> montes, nascetur ridiculus mus.',
+                    sticky: false,
+                    time: '',
+                    class_name: 'gritter-info'
+                });
+                return false;
+            });
+
+            $('#twitter-notification').click(function () {
+
+                $.gritter.add({
+                    title: '<i class="fa fa-times-circle"></i> This is a error notification!',
+                    text: 'This will fade out after a certain amount of time. Vivamus eget tincidunt velit. Cum sociis natoque penatibus et <a href="#" style="color:#ccc">magnis dis parturient</a> montes, nascetur ridiculus mus.',
+                    sticky: false,
+                    time: '',
+                    class_name: 'gritter-info'
+                });
+                return false;
+            });
+
+            $("#remove-all").click(function () {
+                $.gritter.removeAll();
+                return false;
+            });
+
+            //jQuery popup overlay
+            $('#darkCustomModal').popup({
+                pagecontainer: '.container',
+                transition: 'all 0.3s'
+            });
+
+
+            $('#lightCustomModal').popup({
+                pagecontainer: '.container',
+                transition: 'all 0.3s'
+            });
+
+        });
+    </script>
+
+    <script>
+        $(function () {
+            $('#dataTable').dataTable({
+                "bJQueryUI": true,
+                "sPaginationType": "full_numbers"
+            });
+
+            $('#chk-all').click(function () {
+                if ($(this).is(':checked')) {
+                    $('#responsiveTable').find('.chk-row').each(function () {
+                        $(this).prop('checked', true);
+                        $(this).parent().parent().parent().addClass('selected');
+                    });
+                }
+                else {
+                    $('#responsiveTable').find('.chk-row').each(function () {
+                        $(this).prop('checked', false);
+                        $(this).parent().parent().parent().removeClass('selected');
+                    });
+                }
+            });
+        });
+    </script>
+
+
+
+
+
+</body>
+</html>
+

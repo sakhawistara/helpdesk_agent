@@ -1,0 +1,40 @@
+14/11/2016 13:33:10 : --Send Email Ticket No Aktif--
+14/11/2016 13:33:10 : Date Create   :14/11/2016 13:33:10
+14/11/2016 13:33:10 : Ticket Number :Email-210-00000063 Berhasil di insert
+14/11/2016 13:33:10 : Customer Id   :270314
+14/11/2016 15:10:38 : --Send Email Ticket No Aktif--
+14/11/2016 15:10:38 : Date Create   :14/11/2016 15:10:38
+14/11/2016 15:10:38 : Ticket Number : Berhasil di insert
+14/11/2016 15:10:38 : Customer Id   :
+14/11/2016 15:47:20 : --Send Email Ticket No Aktif--
+14/11/2016 15:47:20 : Date Create   :14/11/2016 15:47:20
+14/11/2016 15:47:20 : Ticket Number : Berhasil di insert
+14/11/2016 15:47:20 : Customer Id   :
+14/11/2016 15:49:42 : --Send Email Ticket No Aktif--
+14/11/2016 15:49:42 : Date Create   :14/11/2016 15:49:42
+14/11/2016 15:49:42 : Ticket Number : Berhasil di insert
+14/11/2016 15:49:42 : Customer Id   :
+14/11/2016 15:53:35 : --Send Email Ticket No Aktif--
+14/11/2016 15:53:35 : Date Create   :14/11/2016 15:53:35
+14/11/2016 15:53:35 : Ticket Number :Twitter--00000064 Berhasil di insert
+14/11/2016 15:53:35 : Customer Id   :
+14/11/2016 15:57:14 : --Send Email Ticket No Aktif--
+14/11/2016 15:57:14 : Date Create   :14/11/2016 15:57:14
+14/11/2016 15:57:14 : Ticket Number :Twitter-222-00000065 Berhasil di insert
+14/11/2016 15:57:14 : Customer Id   :
+14/11/2016 16:04:25 : --Send Email Ticket No Aktif--
+14/11/2016 16:04:25 : Date Create   :14/11/2016 16:04:25
+14/11/2016 16:04:25 : Ticket Number :Twitter-222-00000066 Berhasil di insert
+14/11/2016 16:04:25 : Customer Id   :
+14/11/2016 16:14:46 : --Send Email Ticket No Aktif--
+14/11/2016 16:14:46 : Date Create   :14/11/2016 16:14:46
+14/11/2016 16:14:46 : Ticket Number :Email-210-00000067 Berhasil di insert
+14/11/2016 16:14:46 : Customer Id   :270314
+14/11/2016 16:23:44 : --Send Email Ticket No Aktif--
+14/11/2016 16:23:44 : Date Create   :14/11/2016 16:23:44
+14/11/2016 16:23:44 : Ticket Number : Berhasil di insert
+14/11/2016 16:23:44 : Customer Id   :270314
+14/11/2016 16:37:06 : --Send Email Ticket No Aktif--
+14/11/2016 16:37:06 : Date Create   :14/11/2016 16:37:06
+14/11/2016 16:37:06 : Ticket Number :Twitter-222-00000068 Berhasil di insert
+14/11/2016 16:37:06 : Customer Id   :90314

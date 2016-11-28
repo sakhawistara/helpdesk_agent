@@ -1,0 +1,27 @@
+24/11/2016 5:16:09 : --START--
+24/11/2016 5:16:09 : --24/11/2016 5:16:09--
+24/11/2016 5:16:09 : TicketNumber Email-300-00000094Sudah Ada di tCloseTicket
+24/11/2016 5:18:23 : --START--
+24/11/2016 5:18:23 : --24/11/2016 5:18:23--
+24/11/2016 5:18:23 : TicketNumber Email-300-00000095Sudah Ada di tCloseTicket
+24/11/2016 5:22:05 : --START--
+24/11/2016 5:22:05 : --24/11/2016 5:22:05--
+24/11/2016 5:22:05 : TicketNumber Email-300-00000096Sudah Ada di tCloseTicket
+24/11/2016 5:44:14 : --START--
+24/11/2016 5:44:14 : --24/11/2016 5:44:14--
+24/11/2016 5:44:14 : TicketNumber Sms-300-00000098Sudah Ada di tCloseTicket
+24/11/2016 7:01:34 : --START--
+24/11/2016 7:01:34 : --24/11/2016 7:01:34--
+24/11/2016 7:01:34 : TicketNumber Sms-310-00000099Sudah Ada di tCloseTicket
+24/11/2016 9:11:33 : --START--
+24/11/2016 9:11:33 : --24/11/2016 9:11:33--
+24/11/2016 9:11:33 : TicketNumber Email-888-00000100Sudah Ada di tCloseTicket
+24/11/2016 9:20:00 : --START--
+24/11/2016 9:20:00 : --24/11/2016 9:20:00--
+24/11/2016 9:20:00 : TicketNumber Sms-310-00000101Sudah Ada di tCloseTicket
+24/11/2016 9:22:09 : --START--
+24/11/2016 9:22:09 : --24/11/2016 9:22:09--
+24/11/2016 9:22:09 : TicketNumber Sms-310-00000102Sudah Ada di tCloseTicket
+24/11/2016 9:25:14 : --START--
+24/11/2016 9:25:14 : --24/11/2016 9:25:14--
+24/11/2016 9:25:14 : TicketNumber Email-300-00000103Sudah Ada di tCloseTicket
