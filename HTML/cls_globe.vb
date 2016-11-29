@@ -19,7 +19,13 @@ Public Class cls_globe
         CloseKoneksi()
         Try
             If dbName = "fax" Then
-                cs = WebConfigurationManager.ConnectionStrings("dbFax").ConnectionString()
+                cs = WebConfigurationManager.ConnectionStrings("DefaultConnection").ConnectionString()
+            ElseIf dbName = "email" Then
+                cs = WebConfigurationManager.ConnectionStrings("DefaultConnection").ConnectionString()
+			ElseIf dbName = "chat" Then
+                cs = WebConfigurationManager.ConnectionStrings("DefaultConnection").ConnectionString()
+            ElseIf dbName = "master" Then
+                cs = WebConfigurationManager.ConnectionStrings("DefaultConnection").ConnectionString()
             ElseIf dbName = "KM" Then
                 cs = WebConfigurationManager.ConnectionStrings("dbKM").ConnectionString()
             End If
@@ -38,7 +44,7 @@ Public Class cls_globe
     End Sub
 
     Public Sub writedata(ByVal id_user As String, ByVal action As String, ByVal keterangan As String, ByVal query As String, ByVal ChName As String)
-        Dim strdata As String = id_user & " | " & action & " | " & keterangan & " | " & query & " | " & ChName
+        Dim strdata As String = id_user & " | " & action & " | " & ReplaceSpecialLetter(keterangan) & " | " & ReplaceSpecialLetter(query) & " | " & ChName
 
         Dim dt As String = Date.Now.ToString("MM-dd-yyyy")
         Dim namalog, nmdir As String
@@ -80,6 +86,11 @@ Public Class cls_globe
         TmpStr = str
         TmpStr = Replace(TmpStr, "'", "&#39;")
         ReplaceSpecialLetter = TmpStr
+    End Function
+    Public Function ReplaceQuery(ByVal str)
+        TmpStr = str
+        TmpStr = Replace(TmpStr, "'", "")
+        ReplaceQuery = TmpStr
     End Function
     Public Function InFileFAX() As String
         Return ConfigurationManager.AppSettings.Item("InFileFAX")

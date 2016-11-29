@@ -23,6 +23,15 @@ Partial Public Class fax
     Protected WithEvents lit_miniMenuFax As Global.System.Web.UI.WebControls.Literal
 
     '''<summary>
+    '''Dashboard_fax control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents Dashboard_fax As Global.System.Web.UI.HtmlControls.HtmlGenericControl
+
+    '''<summary>
     '''A1 control.
     '''</summary>
     '''<remarks>
@@ -75,6 +84,15 @@ Partial Public Class fax
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents lbl_sendFax As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''UpdatePanel1 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents UpdatePanel1 As Global.System.Web.UI.UpdatePanel
 
     '''<summary>
     '''lblError control.
@@ -273,60 +291,6 @@ Partial Public Class fax
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents fax_detail As Global.System.Web.UI.HtmlControls.HtmlGenericControl
-
-    '''<summary>
-    '''lbl_nama_customer control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents lbl_nama_customer As Global.System.Web.UI.WebControls.Label
-
-    '''<summary>
-    '''lbl_alamat_perusahaan control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents lbl_alamat_perusahaan As Global.System.Web.UI.WebControls.Label
-
-    '''<summary>
-    '''lbl_phone control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents lbl_phone As Global.System.Web.UI.WebControls.Label
-
-    '''<summary>
-    '''lbl_email control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents lbl_email As Global.System.Web.UI.WebControls.Label
-
-    '''<summary>
-    '''div_properties control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents div_properties As Global.System.Web.UI.HtmlControls.HtmlGenericControl
-
-    '''<summary>
-    '''ltr_history_ticket control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents ltr_history_ticket As Global.System.Web.UI.WebControls.Literal
 
     '''<summary>
     '''lbl_pic_customer control.

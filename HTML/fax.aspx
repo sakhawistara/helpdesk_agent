@@ -25,7 +25,7 @@
     </div>
     
     <div class="padding-sm">        
-        <div class="row">            
+        <div class="row" id="Dashboard_fax" runat="server">            
             <div class="col-md-3">
                 <a id="A1" href="?status=open" data-toggle="modal" runat="server">
                 <div class="panel panel-default panel-stat2 bg-success">
@@ -80,26 +80,32 @@
                 </a>
             </div><!-- col-md-3 col-sm-4 Send Fax-->
         </div><!-- Dashboard Fax-->
-        <div class="row" id="lblError" runat="server" visible="false"> 
-            <div class="col-sm-12">
-                <div class="alert alert-danger">
-                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true" id="B_notError" runat="server">&times;</button>
-                    <strong>
-                        <asp:Label ID="lbl_Error" runat="server">error Massege</asp:Label>
-                    </strong>
-                </div>
-            </div>
-        </div><!-- Notifed Error-->
-        <div class="row" id="lblSuccess" runat="server" visible="false"> 
-            <div class="col-sm-12">
-                <div class="alert alert-success">
-                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true" id="b_notSuccess" runat="server">&times;</button>
-                    <strong>
-                        <asp:Label ID="lbl_Success" runat="server">Success Massege</asp:Label>
-                    </strong>
-                </div>
-            </div>
-        </div><!-- Notifed Success-->
+
+        <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+            <ContentTemplate>            
+                <div class="row" id="lblError" runat="server" visible="false"> 
+                    <div class="col-sm-12">
+                        <div class="alert alert-danger">
+                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true" id="B_notError" runat="server">&times;</button>
+                            <strong>
+                                <asp:Label ID="lbl_Error" runat="server">error Massege</asp:Label>
+                            </strong>
+                        </div>
+                    </div>
+                </div><!-- Notifed Error-->
+                <div class="row" id="lblSuccess" runat="server" visible="false"> 
+                    <div class="col-sm-12">
+                        <div class="alert alert-success">
+                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true" id="b_notSuccess" runat="server">&times;</button>
+                            <strong>
+                                <asp:Label ID="lbl_Success" runat="server">Success Massege</asp:Label>
+                            </strong>
+                        </div>
+                    </div>
+                </div><!-- Notifed Success-->
+            </ContentTemplate>
+        </asp:UpdatePanel>
+
         <div class="row" id="fax_TableSend" runat="server">
             <div class="col-md-3">
                 <div class="panel panel-default">
@@ -162,7 +168,7 @@
             </div><!-- Table Inbox-->            
             <div class="col-md-9" id="Fax_send" runat="server" visible="false">
                 <div class="clearfix">
-                    <table class="table table-striped" id="dataTable">
+                    <table class="table table-striped" id="Table1">
                         <thead>
                             <tr>
                                 <th>Re-send</th>
@@ -205,14 +211,15 @@
                     </dx:ASPxHtmlEditor>
                     <asp:FileUpload ID="fu_FaxSend" runat="server"/>
                     <div class="text-right">
-                        <button ID="btn_send" runat="server" type="submit" class="btn btn-info"><i class="fa fa-send"></i> Send</button>
-                        <button ID="btn_cancelCompose" runat="server" Class="btn btn-info" type="submit"><i class="fa fa-arrow-circle-left"></i> Cancel</button>
+                        <button ID="btn_send" runat="server" type="submit" class="btn btn-info" onclick="confirm('Entar Saja, Diseragamin...?');"><i class="fa fa-send"></i> Send</button>
+                        <button ID="btn_cancelCompose" runat="server" Class="btn btn-info" type="submit" onclick="confirm('Entar Saja, Diseragamin...?');"><i class="fa fa-arrow-circle-left"></i> Cancel</button>
+                        
                     </div>
                 </div>              
             </div>
         </div>       
         <div class="row" id="fax_detail" runat="server" visible="false">
-            <div class="col-md-3">
+            <%--<div class="col-md-3">
                 <div class="panel-group" id="accordion">
                     <div class="panel panel-default">
                         <div class="panel-heading">
@@ -279,8 +286,8 @@
                         </div>
                     </div><!-- Tiket History -->
                 </div>
-            </div><!-- Fax menu detail-->
-            <div class="col-md-9">
+            </div><!-- Fax menu detail-->--%>
+            <div class="col-md-12">
                 <div class="panel panel-default">    
                     <div class="panel-heading clearfix">
                         <span class="pull-left">Description Message</span>
@@ -406,5 +413,4 @@
             </div><!-- Fax interaction-->
         </div>
     </div>
-    
 </asp:Content>
