@@ -393,7 +393,7 @@
             <div class="form-group">
                 <label class="col-lg-2 control-label">Reply Posting</label>
                 <div class="col-lg-10"> 
-                    <dx:ASPxCheckBox ID="chk_posting" runat="server"></dx:ASPxCheckBox>
+                    <dx:ASPxCheckBox ID="chk_posting" runat="server"></dx:ASPxCheckBox><label>Posting to Social Media</label>
                     <div id="Div_Button" runat="server" class="text-right">
                         <button id="btnsent" runat="server" class="btn btn-info" type="submit" validationgroup="btnsent">
                             <i class="fa fa-save"></i>&nbsp;Save

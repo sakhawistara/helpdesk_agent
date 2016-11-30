@@ -7,12 +7,12 @@ Public Class sms
     Dim sql As String
     Dim valTwitHst As String
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
-        sql = "select top 5 * from IVC_EMAIL_IN_TM"
+        sql = "select top 20 * from [ICC_SMSInput]"
         sqldr = Proses.ExecuteReader(sql)
         Try
             While sqldr.Read()
                 valTwitHst &= "<tr>" & _
-                              "<td><span class='not-starred'><a class='nonelink' href='twitter_history.aspx?detail=" & sqldr("IVC_ID") & "&account=" & sqldr("EFROM") & "' target='_blank'>" & sqldr("EFROM") & "</a></span></td>" & _
+                              "<td><span class='not-starred'><a class='nonelink' href='sms.aspx?detail=" & sqldr("MessageID") & "&no=" & sqldr("PhoneSender") & "'>" & sqldr("PhoneSender") & "</a></span></td>" & _
                               "</tr>"
                 '"<td><span class='not-starred'><i><a class='nonelink' href='utama.aspx?channel=facebook&id=" & sqldr("IVC_ID") & "&account=" & sqldr("EFROM") & "' target='_blank'>" & sqldr("EFROM") & "</i></span></td>" & _
                 '"<td><span class='not-starred'><i><a class='nonelink' href='utama.aspx?channel=facebook&id=" & sqldr("IVC_ID") & "&account=" & sqldr("EFROM") & "' target='_blank'>" & sqldr("EFROM") & "</i></span></td>" & _
