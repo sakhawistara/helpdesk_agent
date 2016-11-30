@@ -1408,6 +1408,21 @@ Public Class detilsosmed
         End Try
         Dr.Close()
         Con.Close()
+
+        sql = "select * from mCustomer where Facebook='" & lbl_nama_customer.Text & "'"
+        sqldr = Proses.ExecuteReader(sql)
+        If sqldr.Read Then
+            hd_nik.Value = sqldr("CustomerID").ToString
+            lbl_customer.Text = sqldr("NamaPerusahaan").ToString
+            lbl_pic_customer.Text = sqldr("NamePIC").ToString
+            lbl_nama_customer.Text = sqldr("NamaPerusahaan").ToString
+            lbl_alamat_perusahaan.Text = sqldr("Alamat").ToString
+            lbl_phone.Text = sqldr("Telepon").ToString
+            lbl_email.Text = sqldr("Email").ToString
+        End If
+        sqldr.Close()
+
+
         cmb_source_type.Value = "Facebook"
         get_Dropdown()
         txt_message.Visible = False
@@ -1433,6 +1448,20 @@ Public Class detilsosmed
         End Try
         Dr.Close()
         Con.Close()
+
+        sql = "select * from mCustomer where Twitter='" & lbl_nama_customer.Text & "'"
+        sqldr = Proses.ExecuteReader(sql)
+        If sqldr.Read Then
+            hd_nik.Value = sqldr("CustomerID").ToString
+            lbl_customer.Text = sqldr("NamaPerusahaan").ToString
+            lbl_pic_customer.Text = sqldr("NamePIC").ToString
+            lbl_nama_customer.Text = sqldr("NamaPerusahaan").ToString
+            lbl_alamat_perusahaan.Text = sqldr("Alamat").ToString
+            lbl_phone.Text = sqldr("Telepon").ToString
+            lbl_email.Text = sqldr("Email").ToString
+        End If
+        sqldr.Close()
+
         cmb_source_type.Value = "Twitter"
         get_Dropdown()
         txt_message.Visible = False

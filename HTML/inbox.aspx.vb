@@ -34,10 +34,10 @@ Public Class inbox
                 While sqlDr.Read
                     tampungan &= "<tr class='odd gradeX'>" & _
                                    "<td align='center' style='width:100px'><a href='detilsosmed.aspx?id=" & sqlDr("CHANNELID").ToString & "&Name=" & sqlDr("ACCOUNT") & "&ket=" & sqlDr("TYPE") & "&idref=" & sqlDr("IDREF") & "'>Reply</a></td>" & _
-                                   "<td style='width:200px'>" & sqlDr("ACCOUNT").ToString & "</td>" & _
-                                   "<td style='word-wrap: break-word;min-width: 250px;max-width: 250px;white-space:normal; overflow: hidden;'>" & highlightText(sqlDr("MESSAGE").ToString) & "</td>" & _
-                                   "<td style='width:200px' >" & sqlDr("DATECREATE").ToString & "</td>" & _
-                                   "<td style='width:150px'>" & sqlDr("TYPE").ToString & "</td>" & _
+                                   "<td style='width:200px'><a href='detilsosmed.aspx?id=" & sqlDr("CHANNELID").ToString & "&Name=" & sqlDr("ACCOUNT") & "&ket=" & sqlDr("TYPE") & "&idref=" & sqlDr("IDREF") & "'>" & sqlDr("ACCOUNT").ToString & "</a></td>" & _
+                                   "<td style='word-wrap: break-word;min-width: 250px;max-width: 250px;white-space:normal; overflow: hidden;'><a href='detilsosmed.aspx?id=" & sqlDr("CHANNELID").ToString & "&Name=" & sqlDr("ACCOUNT") & "&ket=" & sqlDr("TYPE") & "&idref=" & sqlDr("IDREF") & "'>" & highlightText(sqlDr("MESSAGE").ToString) & "</a></td>" & _
+                                   "<td style='width:200px' ><a href='detilsosmed.aspx?id=" & sqlDr("CHANNELID").ToString & "&Name=" & sqlDr("ACCOUNT") & "&ket=" & sqlDr("TYPE") & "&idref=" & sqlDr("IDREF") & "'>" & sqlDr("DATECREATE").ToString & "</a></td>" & _
+                                   "<td style='width:150px'><a href='detilsosmed.aspx?id=" & sqlDr("CHANNELID").ToString & "&Name=" & sqlDr("ACCOUNT") & "&ket=" & sqlDr("TYPE") & "&idref=" & sqlDr("IDREF") & "'>" & sqlDr("TYPE").ToString & "</a></td>" & _
                                    "</tr>"
                 End While
                 sqlDr.Close()

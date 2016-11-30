@@ -30,7 +30,7 @@
                         </PrevPageButton>
                     </SettingsPager>
                     <SettingsPager PageSize="20" />
-                     <SettingsEditing Mode="Inline" />
+                    <SettingsEditing Mode="Inline" />
                     <Settings ShowFilterRow="true" ShowGroupPanel="false" ShowHorizontalScrollBar="false" />
                     <SettingsBehavior ConfirmDelete="true" />
                     <Columns>
@@ -38,12 +38,12 @@
                             <NewButton Visible="true">
                                 <Image Url="~/Images/icon/Apps-text-editor-icon2.png"></Image>
                             </NewButton>
-                            <UpdateButton Visible="true">
-                                <Image Url="~/Images/icon/Apps-text-editor-icon2.png"></Image>
-                            </UpdateButton>
                             <DeleteButton Visible="true">
                                 <Image Url="~/Images/icon/Actions-edit-clear-icon2.png"></Image>
                             </DeleteButton>
+                            <EditButton Visible="True">
+                                <Image ToolTip="Edit" Url="img/Icon/Text-Edit-icon2.png" />
+                            </EditButton>
                             <CancelButton Visible="true">
                                 <Image ToolTip="Cancel" Url="~/Images/icon/cancel1.png">
                                 </Image>
@@ -52,7 +52,7 @@
                                 <Image ToolTip="Update" Url="~/Images/icon/Updated1.png" />
                             </UpdateButton>
                         </dx:GridViewCommandColumn>
-                        <dx:GridViewDataColumn FieldName="USERNAME" VisibleIndex="1" Settings-AutoFilterCondition="Contains" />
+                        <dx:GridViewDataColumn FieldName="USERNAME" VisibleIndex="1" ReadOnly="true" Settings-AutoFilterCondition="Contains" />
                         <dx:GridViewDataComboBoxColumn Caption="LEVELUSER" FieldName="LEVELUSER" HeaderStyle-HorizontalAlign="left">
                             <PropertiesComboBox TextField="Description" ValueField="LevelUserID" EnableSynchronization="False"
                                 TextFormatString="{0}" IncrementalFilteringMode="Contains" DataSourceID="sql_level_user">
@@ -62,6 +62,8 @@
                                 </Columns>
                             </PropertiesComboBox>
                         </dx:GridViewDataComboBoxColumn>
+                        <dx:GridViewDataColumn FieldName="INBOUND" HeaderStyle-HorizontalAlign="Center" Settings-AutoFilterCondition="Contains" />
+                        <dx:GridViewDataColumn FieldName="OUTBOUND" HeaderStyle-HorizontalAlign="Center" Settings-AutoFilterCondition="Contains" />
                         <dx:GridViewDataColumn FieldName="FAX" HeaderStyle-HorizontalAlign="Center" Settings-AutoFilterCondition="Contains" />
                         <dx:GridViewDataColumn FieldName="SMS" HeaderStyle-HorizontalAlign="Center" Settings-AutoFilterCondition="Contains" />
                         <dx:GridViewDataColumn FieldName="EMAIL" HeaderStyle-HorizontalAlign="Center" Settings-AutoFilterCondition="Contains" />
@@ -209,7 +211,7 @@
                 <asp:SqlDataSource ID="sql_menu_tree" runat="server" ConnectionString="<%$ ConnectionStrings:DefaultConnection %>"></asp:SqlDataSource>
                 <asp:SqlDataSource ID="sql_User3" runat="server" ConnectionString="<%$ ConnectionStrings:DefaultConnection %>"></asp:SqlDataSource>
                 <asp:SqlDataSource ID="sql_level_user" runat="server" ConnectionString="<%$ ConnectionStrings:DefaultConnection %>"></asp:SqlDataSource>
-            
+
             </div>
         </div>
     </div>

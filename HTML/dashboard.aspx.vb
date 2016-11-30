@@ -142,7 +142,7 @@ Public Class dashboard
             sqldr = cmd.ExecuteReader()
             While sqldr.Read()
                 valOpen &= "<tr>" & _
-                              "<td><span class='not-starred'><a class='nonelink' href='utama.aspx?channel=email&id=" & sqldr("TicketNumber") & "&account=" & sqldr("NIK") & "' target='_blank'>" & sqldr("TicketNumber") & "</a></span></td>" & _
+                              "<td><span class='not-starred'><a class='nonelink' href='utama.aspx?channel=email&tid=" & sqldr("TicketNumber") & "&account=" & sqldr("NIK") & "&layer=" & Session("LoginType") & "' target='_blank'>" & sqldr("TicketNumber") & "</a></span></td>" & _
                               "<td><span class='not-starred'><i><a class='nonelink' href='utama.aspx?channel=email&id=" & sqldr("TicketNumber") & "&account=" & sqldr("NIK") & "' target='_blank'>" & sqldr("NIK") & "</i></span></td>" & _
                               "<td>" & sqldr("DetailComplaint").ToString & "</td>" & _
                               "<td>" & sqldr("DateCreate").ToString & "</td>" & _

@@ -68,18 +68,15 @@
     <div class="padding-md">
         <div class="col-md-3 col-sm-3">
             <div class="row">
-                <div class="panel-group" id="accordion">
                     <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">Customer Contact
-                            </a>
-                            <div class="btn-group pull-right">
-                                <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
-                                    <i class="fa fa-chevron-down"></i>
-                                </button>
-                            </div>
+                         <div class="panel-heading clearfix">
+                            <span class="pull-left">Customer Contact</span>
+                            <ul class="tool-bar">
+                                <%-- <li><a href="#" class="refresh-widget" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Refresh"><i class="fa fa-refresh"></i></a></li>--%>
+                                <li><a href="#collapseOne" data-toggle="collapse"><i class="fa fa-chevron-down"></i></a></li>
+                            </ul>
                         </div>
-                        <div id="collapseOne" class="panel-collapse collapse in">
+                        <div id="collapseOne" class="panel-body no-padding collapse in">
                             <div class="panel-body">
                                 <address>
                                     <strong>
@@ -99,41 +96,20 @@
                                 <a href="inbox_twitter.aspx?account=<%= Request.QueryString("name")%>" class="social-connect tooltip-test twitter-hover pull-left m-right-xs" data-toggle="tooltip" data-original-title="Twitter"><i class="fa fa-twitter"></i></a>
                                 <a href="#" class="social-connect tooltip-test google-plus-hover pull-left" data-toggle="tooltip" data-original-title="Google Plus"><i class="fa fa-google-plus"></i></a>
                                 <a href="#" class="social-connect tooltip-test google-plus-hover pull-left" data-toggle="tooltip" data-original-title="Instagram"><i class="fa fa-instagram"></i></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                    <span class="pull-right"><a href="#ModalEmail" title="Edit Contact" class="social-connect tooltip-test google-plus-hover pull-left" data-toggle="modal" data-original-title="Instagram"><i class="fa fa-edit"></i></a></span>
-                                <%--  <h6>Detail Contact</h6>
-                                    <ul class="nav-notification clearfix" style="list-style: none;">
-                                        <li class="dropdown">
-                                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                                                <i class="fa fa-folder fa-lg" title="History Customer Ticket"></i>
-                                            </a>
-                                            <ul class="dropdown-menu notification dropdown-3">
-                                                <li><a href="#">You have 5 last ticket</a></li>
-                                                <li>
-                                                    <a href="#">
-                                                        <span class="notification-icon bg-warning">
-                                                            <i class="fa fa-warning"></i>
-                                                        </span>
-                                                        <span class="m-left-xs">Server #2 not responding.</span>
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                        </li>
-                                    </ul>--%>
+                                <span class="pull-right"><a href="#ModalEmail" title="Edit Contact" class="social-connect tooltip-test google-plus-hover pull-left" data-toggle="modal" data-original-title="Instagram"><i class="fa fa-edit"></i></a></span>
                             </div>
                         </div>
                     </div>
                     <!-- /panel -->
                     <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">Ticket Properties
-                            </a>
-                            <div class="btn-group pull-right">
-                                <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
-                                    <i class="fa fa-chevron-down"></i>
-                                </button>
-                            </div>
+                        <div class="panel-heading clearfix">
+                            <span class="pull-left">Ticket Properties</span>
+                            <ul class="tool-bar">
+                                <%-- <li><a href="#" class="refresh-widget" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Refresh"><i class="fa fa-refresh"></i></a></li>--%>
+                                <li><a href="#collapseTwo" data-toggle="collapse"><i class="fa fa-chevron-down"></i></a></li>
+                            </ul>
                         </div>
-                        <div id="collapseTwo" class="panel-collapse collapse in">
+                        <div id="collapseTwo" class="panel-body no-padding collapse in">
                             <div class="panel-body">
                                 <dx:ASPxCallbackPanel ID="callbackPanelX" ClientInstanceName="callbackPanelX"
                                     runat="server" Width="0%" Height="0" RenderMode="Table">
@@ -283,22 +259,18 @@
                                         </dx:PanelContent>
                                     </PanelCollection>
                                 </dx:ASPxCallbackPanel>
-
                             </div>
                         </div>
                     </div>
                     <!-- /panel -->
                     <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseThree">History Transaction Ticket
-                            </a>
-                            <div class="btn-group pull-right">
-                                <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
-                                    <i class="fa fa-chevron-down"></i>
-                                </button>
-                            </div>
+                        <div class="panel-heading clearfix">
+                            <span class="pull-left">History Ticket</span>
+                            <ul class="tool-bar">
+                                <li><a href="#collapsHistory" data-toggle="collapse"><i class="fa fa-chevron-down"></i></a></li>
+                            </ul>
                         </div>
-                        <div id="collapseThree" class="panel-collapse collapse">
+                        <div class="panel-body no-padding collapse" id="collapsHistory">
                             <div class="panel-body">
                                 <table class="table table-bordered table-condensed table-hover table-striped">
                                     <thead>
@@ -314,10 +286,11 @@
                                 </table>
                             </div>
                         </div>
+                        <div class="loading-overlay">
+                            <i class="loading-icon fa fa-refresh fa-spin fa-lg"></i>
+                        </div>
                     </div>
                     <!-- /panel -->
-                </div>
-                <!-- /panel-group -->
             </div>
         </div>
         <!-- /.col -->
@@ -356,7 +329,6 @@
                     <div class="panel-heading clearfix">
                         <span class="pull-left">Customer Interaction</span>
                         <ul class="tool-bar">
-                            <%-- <li><a href="#" class="refresh-widget" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Refresh"><i class="fa fa-refresh"></i></a></li>--%>
                             <li><a href="#collapseWidget" data-toggle="collapse"><i class="fa fa-chevron-down"></i></a></li>
                         </ul>
                     </div>
@@ -392,7 +364,7 @@
 
             <div class="form-group">
                 <label class="col-lg-2 control-label">Reply Posting</label>
-                <div class="col-lg-10"> 
+                <div class="col-lg-10">
                     <dx:ASPxCheckBox ID="chk_posting" runat="server"></dx:ASPxCheckBox>
                     <div id="Div_Button" runat="server" class="text-right">
                         <button id="btnsent" runat="server" class="btn btn-info" type="submit" validationgroup="btnsent">
@@ -402,7 +374,7 @@
                             <i class="fa fa-arrow-circle-left"></i>&nbsp;Cancel
                         </button>
                         <a href="#ModalDispatchSatu" role="button" data-toggle="modal" class="btn btn-info" id="modal_dispatch_satu" runat="server">
-                            <i class="fa fa-share-square-o"> </i>Dispatch</a>
+                            <i class="fa fa-share-square-o"></i>Dispatch</a>
                     </div>
                 </div>
             </div>

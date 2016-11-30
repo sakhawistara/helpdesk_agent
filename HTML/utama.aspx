@@ -56,18 +56,15 @@
     <div class="padding-md">
         <div class="col-md-3 col-sm-3">
             <div class="row">
-                <div class="panel-group" id="accordion">
                     <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">Customer Contact
-							</a>
-                            <div class="btn-group pull-right">
-                                <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
-                                    <i class="fa fa-chevron-down"></i>
-                                </button>
-                            </div>
+                        <div class="panel-heading clearfix">
+                            <span class="pull-left">Customer Contact</span>
+                            <ul class="tool-bar">
+                                <%-- <li><a href="#" class="refresh-widget" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Refresh"><i class="fa fa-refresh"></i></a></li>--%>
+                                <li><a href="#collapseOne" data-toggle="collapse"><i class="fa fa-chevron-down"></i></a></li>
+                            </ul>
                         </div>
-                        <div id="collapseOne" class="panel-collapse collapse in">
+                        <div id="collapseOne" class="panel-body no-padding collapse in">
                             <div class="panel-body">
                                 <address>
                                     <strong>
@@ -96,16 +93,14 @@
                     </div>
                     <!-- /panel -->
                     <div class="panel panel-default" runat="server" id="div_properties">
-                        <div class="panel-heading">
-                            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">Ticket Properties
-								</a>
-                            <div class="btn-group pull-right">
-                                <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
-                                    <i class="fa fa-chevron-down"></i>
-                                </button>
-                            </div>
+                        <div class="panel-heading clearfix">
+                            <span class="pull-left">Ticket Properties</span>
+                            <ul class="tool-bar">
+                                <%-- <li><a href="#" class="refresh-widget" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Refresh"><i class="fa fa-refresh"></i></a></li>--%>
+                                <li><a href="#collapseTwo" data-toggle="collapse"><i class="fa fa-chevron-down"></i></a></li>
+                            </ul>
                         </div>
-                        <div id="collapseTwo" class="panel-collapse collapse in">
+                        <div id="collapseTwo" class="panel-body no-padding collapse in">
                             <div class="panel-body">
                                 <dx:aspxcallbackpanel id="callbackPanelX" clientinstancename="callbackPanelX"
                                     runat="server" width="0%" height="0" rendermode="Table">
@@ -264,16 +259,13 @@
                     </div>
                     <!-- /panel -->
                     <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseThree">History Transaction Ticket
-							</a>
-                            <div class="btn-group pull-right">
-                                <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
-                                    <i class="fa fa-chevron-down"></i>
-                                </button>
-                            </div>
+                         <div class="panel-heading clearfix">
+                            <span class="pull-left">History Ticket</span>
+                            <ul class="tool-bar">
+                                <li><a href="#collapsHistory" data-toggle="collapse"><i class="fa fa-chevron-down"></i></a></li>
+                            </ul>
                         </div>
-                        <div id="collapseThree" class="panel-collapse collapse">
+                        <div id="collapsHistory" class="panel-body no-padding collapse">
                             <div class="panel-body">
                                 <table class="table table-bordered table-condensed table-hover table-striped">
                                     <thead>
@@ -289,8 +281,6 @@
                         </div>
                     </div>
                     <!-- /panel -->
-                </div>
-                <!-- /panel-group -->
             </div>
         </div>
         <!-- /.col -->

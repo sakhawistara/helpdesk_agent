@@ -30,4 +30,9 @@ Public Class um
         sql_menu_tree.SelectCommand = "select DISTINCT USER3.SubMenuIDTree, USER3.MenuTreeName from user4 LEFT OUTER JOIN USER3 ON.USER4.MenuIDTree = USER3.SubMenuIDTree where USER3.SubMenuID='" & Session("SubMenuID") & "'"
         sql_User3.SelectCommand = "Select * from user3 where SubMenuID='" & Session("SubMenuID") & "'"
     End Sub
+
+    Private Sub ASPxGridView1_RowUpdating(sender As Object, e As DevExpress.Web.Data.ASPxDataUpdatingEventArgs) Handles ASPxGridView1.RowUpdating
+        sql_user.UpdateCommand = "UPDATE MSUSER SET FAX=@FAX, SMS=@SMS, EMAIL=@EMAIL, FACEBOOK=@FACEBOOK, TWITTER=@TWITTER, CHAT=@CHAT WHERE USERNAME=@USERNAME"
+        sql_user.SelectCommand = "SELECT * FROM MSUSER"
+    End Sub
 End Class

@@ -1470,6 +1470,14 @@ lit_miniMenuFax control.
 Auto-generated field.
 To modify move field declaration from designer file to code-behind file.
 </remarks>
+</member><member name="F:ICC.fax.Dashboard_fax">
+	<summary>
+Dashboard_fax control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
 </member><member name="F:ICC.fax.A1">
 	<summary>
 A1 control.
@@ -1513,6 +1521,14 @@ To modify move field declaration from designer file to code-behind file.
 </member><member name="F:ICC.fax.lbl_sendFax">
 	<summary>
 lbl_sendFax control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:ICC.fax.UpdatePanel1">
+	<summary>
+UpdatePanel1 control.
 </summary>
 	<remarks>
 Auto-generated field.
@@ -1689,54 +1705,6 @@ To modify move field declaration from designer file to code-behind file.
 </member><member name="F:ICC.fax.fax_detail">
 	<summary>
 fax_detail control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:ICC.fax.lbl_nama_customer">
-	<summary>
-lbl_nama_customer control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:ICC.fax.lbl_alamat_perusahaan">
-	<summary>
-lbl_alamat_perusahaan control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:ICC.fax.lbl_phone">
-	<summary>
-lbl_phone control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:ICC.fax.lbl_email">
-	<summary>
-lbl_email control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:ICC.fax.div_properties">
-	<summary>
-div_properties control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:ICC.fax.ltr_history_ticket">
-	<summary>
-ltr_history_ticket control.
 </summary>
 	<remarks>
 Auto-generated field.
@@ -3222,6 +3190,134 @@ ltr_email control.
 Auto-generated field.
 To modify move field declaration from designer file to code-behind file.
 </remarks>
+</member><member name="F:ICC.inbox_email.lit_miniMenuEmail">
+	<summary>
+lit_miniMenuEmail control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:ICC.inbox_email.Dashboard_email">
+	<summary>
+Dashboard_email control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:ICC.inbox_email.A1">
+	<summary>
+A1 control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:ICC.inbox_email.lbl_open">
+	<summary>
+lbl_open control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:ICC.inbox_email.A2">
+	<summary>
+A2 control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:ICC.inbox_email.lbl_inboxEmail">
+	<summary>
+lbl_inboxEmail control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:ICC.inbox_email.A3">
+	<summary>
+A3 control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:ICC.inbox_email.lbl_sendEmail">
+	<summary>
+lbl_sendEmail control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:ICC.inbox_email.UpdatePanel1">
+	<summary>
+UpdatePanel1 control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:ICC.inbox_email.lblError">
+	<summary>
+lblError control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:ICC.inbox_email.B_notError">
+	<summary>
+B_notError control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:ICC.inbox_email.lbl_Error">
+	<summary>
+lbl_Error control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:ICC.inbox_email.lblSuccess">
+	<summary>
+lblSuccess control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:ICC.inbox_email.b_notSuccess">
+	<summary>
+b_notSuccess control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:ICC.inbox_email.lbl_Success">
+	<summary>
+lbl_Success control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:ICC.inbox_email.lit_TNew">
+	<summary>
+lit_TNew control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
 </member><member name="F:ICC.inbox_email.btn_compose">
 	<summary>
 btn_compose control.
@@ -3230,33 +3326,25 @@ btn_compose control.
 Auto-generated field.
 To modify move field declaration from designer file to code-behind file.
 </remarks>
-</member><member name="F:ICC.inbox_email.div_table">
+</member><member name="F:ICC.inbox_email.Email_table">
 	<summary>
-div_table control.
+Email_table control.
 </summary>
 	<remarks>
 Auto-generated field.
 To modify move field declaration from designer file to code-behind file.
 </remarks>
-</member><member name="F:ICC.inbox_email.gv_inbox_email">
+</member><member name="F:ICC.inbox_email.lit_dataEmailIN">
 	<summary>
-gv_inbox_email control.
+lit_dataEmailIN control.
 </summary>
 	<remarks>
 Auto-generated field.
 To modify move field declaration from designer file to code-behind file.
 </remarks>
-</member><member name="F:ICC.inbox_email.sql_inbox_email">
+</member><member name="F:ICC.inbox_email.Email_Compose">
 	<summary>
-sql_inbox_email control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:ICC.inbox_email.div_compose">
-	<summary>
-div_compose control.
+Email_Compose control.
 </summary>
 	<remarks>
 Auto-generated field.
@@ -3270,9 +3358,49 @@ txt_to control.
 Auto-generated field.
 To modify move field declaration from designer file to code-behind file.
 </remarks>
-</member><member name="F:ICC.inbox_email.ASPxHtmlEditor1">
+</member><member name="F:ICC.inbox_email.txt_cc">
 	<summary>
-ASPxHtmlEditor1 control.
+txt_cc control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:ICC.inbox_email.txt_subject">
+	<summary>
+txt_subject control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:ICC.inbox_email.html_editor_Body">
+	<summary>
+html_editor_Body control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:ICC.inbox_email.fu_EmailAttach">
+	<summary>
+fu_EmailAttach control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:ICC.inbox_email.btn_send">
+	<summary>
+btn_send control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:ICC.inbox_email.btn_cancelCompose">
+	<summary>
+btn_cancelCompose control.
 </summary>
 	<remarks>
 Auto-generated field.

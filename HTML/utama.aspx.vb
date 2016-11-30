@@ -148,6 +148,7 @@ Public Class utama
 
         End If
         modal_dispatch_satu.Visible = False
+        div_sla.Visible = True
     End Sub
 
     Function function_Scustomer_Email(ByVal id As String, ByVal account As String)
