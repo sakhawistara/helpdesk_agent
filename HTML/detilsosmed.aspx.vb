@@ -109,6 +109,77 @@ Public Class detilsosmed
         hprlink.Visible = True
         hprlink.NavigateUrl = "inbox.aspx"
         lbl_link.Text = "Todolist"
+
+
+        'conversation
+        Dim tampungan As String = ""
+        Dim alldata As String = ""
+        Dim selecthistory As String = "Select ROW_NUMBER() over(order by ddate Desc)as No, idTbl,  Name, TextNya, ddate, dSource, flagread, agent_handle From ( " & _
+                                    "Select P_ddate as ddate, P_ID_Post as idTbl, P_User_Name as Name, P_Message as TextNya, P_flagread as flagread ,dSource, P_agent_handle as agent_handle from GetSosmed_One " & _
+                                    "UNION " & _
+                                    "Select C_ddate as ddate, C_ID_Post as idTbl, C_User_Name as Name, C_Message as TextNya, C_flagread as flagread, dSource, C_agent_handle as agent_handle from GetSosmed_Two " & _
+                                    "UNION " & _
+                                    "Select R_ddate as ddate, R_ID_Post as idTbl, R_User_name as Name, R_Message as TextNya, R_flagread as flagread, dSource, R_agent_handle as agent_handle from GetSosmed_Three " & _
+                                    "UNION " & _
+                                    "select tTime as ddate, id_Chat as idTbl, tfrom as Name, tMessage as TextNya, flag_Read as flagread, 'inbox' as dSource, agent_handle from GetSosmed_Inbox ) " & _
+                                    "as a " & _
+                                    "WHERE flagread = '1' and Name ='" & Request.QueryString("Name") & "'" & _
+                                    "order by  ddate desc"
+
+        Com = New SqlCommand(selecthistory, Con)
+        Con.Open()
+        Dr = Com.ExecuteReader()
+        While Dr.Read()
+            alldata &= "<tr>" & _
+                       "<td>" & _
+                           "<a href='#' class='task-del'>" & Dr("No").ToString & "</a>" & _
+                       "</td>" & _
+                       "<td>" & Dr("dSource").ToString & "</td>" & _
+                       "<td>" & Dr("ddate").ToString & "</td>" & _
+                       "</tr>"
+            tampungan &= "<li class='left clearfix'> " & _
+                                        "<span class='chat-img pull-left'> " & _
+                                            "<img src='img/user.jpg' alt=User Avatar'> " & _
+                                        "</span> " & _
+                                        "<div class='chat-body clearfix'>" & _
+                                            "<div class='header'>" & _
+                                                "<strong class='primary-font'>" & Dr("Name").ToString & "</strong>" & _
+                                                "<small class='pull-right text-muted'><i class='fa fa-clock-o'></i>" & Dr("ddate").ToString & "</small>" & _
+                                            "</div>" & _
+                                            "<p> " & Dr("TextNya").ToString & " </p>" & _
+                                        "</div>" & _
+                                    "</li>"
+
+            Try
+                Dim history As String = "select * from sosmed_post where ID_Post = '" & Dr("idTbl").ToString & "' and tName = '" & Dr("Name").ToString & "'"
+                Com1 = New SqlCommand(history, Con1)
+                Con1.Open()
+                Dr1 = Com1.ExecuteReader()
+                While Dr1.Read()
+                    tampungan &= "<li class='right clearfix'> " & _
+                                        "<span class='chat-img pull-right'> " & _
+                                            "<img src='img/user.jpg' alt=User Avatar'> " & _
+                                        "</span> " & _
+                                        "<div class='chat-body clearfix'>" & _
+                                            "<div class='header'>" & _
+                                                "<strong class='primary-font'>" & Dr1("agent_handle").ToString & "</strong>" & _
+                                                "<small class='pull-right text-muted'><i class='fa fa-clock-o'></i>" & Dr1("ddate").ToString & "</small>" & _
+                                            "</div>" & _
+                                            "<p> " & Dr1("tMessage").ToString & " </p>" & _
+                                        "</div>" & _
+                                    "</li>"
+                End While
+                Dr1.Close()
+                Con1.Close()
+            Catch ex As Exception
+                Response.Write(ex.Message)
+            End Try
+        End While
+        Dr.Close()
+        Con.Close()
+        showhistory.Text = tampungan
+        trxticket.Text = alldata
+        'End Conversation
     End Sub
 
     Function fmention(ByVal id As String, ByVal Name As String)
@@ -1594,133 +1665,412 @@ Public Class detilsosmed
     End Sub
 
     Sub update_sosmed()
+        'save sosmed 
+        Dim path As String = Server.MapPath("~/HTML/Upload/")
         Dim insertdata As String
-        If Request.QueryString("ket") = "Twitter" Then
-            If Session("source") = "twMention" Then
-                Dim insert As String = "INSERT INTO sosmed_post (dsource, ID_Post, tMessage, tImage, tName, agent_handle, ddate) VALUES ('tw_reply', '" & Request.QueryString("IDREF") & "', '" & ASPxHtmlEditor1.Html & "', '', '" & Request.QueryString("Name") & "', '" & Session("username") & "', GETDATE())"
-                Com = New SqlCommand(insert, Con)
-                Con.Open()
-                Com.ExecuteNonQuery()
-                Con.Close()
+        If chk_posting.Checked = True Then
+            If Request.QueryString("ket") = "Twitter" Then
+                If Session("source") = "twMention" Then
+                    Dim insert As String = "INSERT INTO sosmed_post (dsource, ID_Post, tMessage, tImage, tName, agent_handle, ddate) VALUES ('tw_reply', '" & Request.QueryString("IDREF") & "', '" & ASPxHtmlEditor1.Html & "', '', '" & Request.QueryString("Name") & "', '" & Session("username") & "', GETDATE())"
+                    Com = New SqlCommand(insert, Con)
+                    Con.Open()
+                    Com.ExecuteNonQuery()
+                    Con.Close()
+                    'End If
 
-                Dim insertlog As String = "INSERT INTO mslog (Username, Flag, Data, datetime) VALUES ('" & Session("username") & "', 'Handle Mention', '" & ReplaceSpecialLetter(ASPxHtmlEditor1.Html) & "', GETDATE())"
-                Com = New SqlCommand(insertlog, Con)
-                Con.Open()
-                Com.ExecuteNonQuery()
-                Con.Close()
+                    Dim insertlog As String = "INSERT INTO mslog (Username, Flag, Data, datetime) VALUES ('" & Session("username") & "', 'Handle Mention', '" & ASPxHtmlEditor1.Html & "', GETDATE())"
+                    Com = New SqlCommand(insertlog, Con)
+                    Con.Open()
+                    Com.ExecuteNonQuery()
+                    Con.Close()
 
-                Dim updateflag As String = "update GetSosmed_One set P_flagread = '1' where P_ID_Post = '" & Request.QueryString("IDREF") & "' "
-                Com = New SqlCommand(updateflag, Con)
-                Con.Open()
-                Com.ExecuteNonQuery()
-                Con.Close()
+                    Dim updateflag As String = "update GetSosmed_One set P_flagread = '1' where P_ID_Post = '" & Request.QueryString("IDREF") & "' "
+                    Com = New SqlCommand(updateflag, Con)
+                    Con.Open()
+                    Com.ExecuteNonQuery()
+                    Con.Close()
 
-            ElseIf Session("source") = "tw_DM" Then
-                Dim insert As String = "INSERT INTO sosmed_post (dsource, ID_Post, tMessage, tImage, tName, agent_handle, ddate) VALUES ('tw_sendDM', '" & Request.QueryString("IDREF") & "', '" & ReplaceSpecialLetter(ASPxHtmlEditor1.Html) & "', '', '" & Request.QueryString("Name") & "', '" & Session("username") & "', GETDATE())"
-                Com = New SqlCommand(insert, Con)
-                Con.Open()
-                Com.ExecuteNonQuery()
-                Con.Close()
+                ElseIf Session("source") = "tw_DM" Then
+                    Dim insert As String = "INSERT INTO sosmed_post (dsource, ID_Post, tMessage, tImage, tName, agent_handle, ddate) VALUES ('tw_sendDM', '" & Request.QueryString("IDREF") & "', '" & ASPxHtmlEditor1.Html & "', '', '" & Request.QueryString("Name") & "', '" & Session("username") & "', GETDATE())"
+                    Com = New SqlCommand(insert, Con)
+                    Con.Open()
+                    Com.ExecuteNonQuery()
+                    Con.Close()
+                    'End If
 
-                Dim insertlog As String = "INSERT INTO mslog (Username, Flag, Data, datetime) VALUES ('" & Session("username") & "', 'Handle DM', '" & ReplaceSpecialLetter(ASPxHtmlEditor1.Html) & "', GETDATE())"
-                Com = New SqlCommand(insertlog, Con)
-                Con.Open()
-                Com.ExecuteNonQuery()
-                Con.Close()
+                    Dim insertlog As String = "INSERT INTO mslog (Username, Flag, Data, datetime) VALUES ('" & Session("username") & "', 'Handle DM', '" & ASPxHtmlEditor1.Html & "', GETDATE())"
+                    Com = New SqlCommand(insertlog, Con)
+                    Con.Open()
+                    Com.ExecuteNonQuery()
+                    Con.Close()
 
-                Dim updateflag As String = "update GetSosmed_One set P_flagread = '1' where P_ID_Post = '" & Request.QueryString("IDREF") & "' "
-                Com = New SqlCommand(updateflag, Con)
-                Con.Open()
-                Com.ExecuteNonQuery()
-                Con.Close()
+                    Dim updateflag As String = "update GetSosmed_One set P_flagread = '1' where P_ID_Post = '" & Request.QueryString("IDREF") & "' "
+                    Com = New SqlCommand(updateflag, Con)
+                    Con.Open()
+                    Com.ExecuteNonQuery()
+                    Con.Close()
+                End If
+                'If uploadfile.HasFile Then
+                '    Try
+                '        uploadfile.SaveAs(path + uploadfile.FileName)
+                '    Catch ex As Exception
+                '        Response.Write(DirectCast("", String))
+                '    End Try
+                '    Dim insert As String = "INSERT INTO sosmed_post (dsource, ID_Post, tMessage, tImage, tName, agent_handle, ddate) VALUES ('tw_reply', '" & Request.QueryString("id") & "', '" & ASPxHtmlEditor1.Html & "', '" & path + uploadfile.FileName & "', '" & Request.QueryString("Name") & "', '" & Session("username") & "', GETDATE())"
+                '    Com = New SqlCommand(insert, Con)
+                '    Con.Open()
+                '    Com.ExecuteNonQuery()
+                '    Con.Close()
+                'Else
+
+            Else
+                If Session("source") = "fb_Post" Then
+                    'If uploadfile.HasFile Then
+                    '    Try
+                    '        uploadfile.SaveAs(path + uploadfile.FileName)
+                    '    Catch ex As Exception
+                    '        Response.Write(DirectCast("", String))
+                    '    End Try
+                    '    Dim insert As String = "INSERT INTO sosmed_post (dsource, ID_Post, tMessage, tImage, tName, agent_handle, ddate) VALUES ('fb_post_cr', '" & Request.QueryString("id") & "', '" & ASPxHtmlEditor1.Html & "', '" & path + uploadfile.FileName & "', '" & Request.QueryString("Name") & "', '" & Session("username") & "', GETDATE())"
+                    '    Com = New SqlCommand(insert, Con)
+                    '    Con.Open()
+                    '    Com.ExecuteNonQuery()
+                    '    Con.Close()
+                    'Else
+                    Dim insert As String = "INSERT INTO sosmed_post (dsource, ID_Post, tMessage, tImage, tName, agent_handle, ddate) VALUES ('fb_post_cr', '" & Request.QueryString("IDREF") & "', '" & ASPxHtmlEditor1.Html & "', '', '" & Request.QueryString("Name") & "', '" & Session("username") & "', GETDATE())"
+                    Com = New SqlCommand(insert, Con)
+                    Con.Open()
+                    Com.ExecuteNonQuery()
+                    Con.Close()
+                    'End If
+
+                    Dim insertlog As String = "INSERT INTO mslog (Username, Flag, Data, datetime) VALUES ('" & Session("username") & "', 'handle Post', '" & ASPxHtmlEditor1.Html & "', GETDATE())"
+                    Com = New SqlCommand(insertlog, Con)
+                    Con.Open()
+                    Com.ExecuteNonQuery()
+                    Con.Close()
+
+                    Dim updateflag As String = "update GetSosmed_One set P_flagread = '1' where P_ID_Post = '" & Request.QueryString("IDREF") & "' "
+                    Com = New SqlCommand(updateflag, Con)
+                    Con.Open()
+                    Com.ExecuteNonQuery()
+                    Con.Close()
+
+                ElseIf Session("source") = "fb_comment" Then
+                    'If uploadfile.HasFile Then
+                    '    Try
+                    '        uploadfile.SaveAs(path + uploadfile.FileName)
+                    '    Catch ex As Exception
+                    '        Response.Write(DirectCast("", String))
+                    '    End Try
+                    '    Dim insert As String = "INSERT INTO sosmed_post (dsource, ID_Post, tMessage, tImage, tName, agent_handle, ddate) VALUES ('fb_post_cr', '" & Request.QueryString("id") & "', '" & ASPxHtmlEditor1.Html & "', '" & path + uploadfile.FileName & "', '" & Request.QueryString("Name") & "', '" & Session("username") & "', GETDATE())"
+                    '    Com = New SqlCommand(insert, Con)
+                    '    Con.Open()
+                    '    Com.ExecuteNonQuery()
+                    '    Con.Close()
+                    'Else
+                    Dim insert As String = "INSERT INTO sosmed_post (dsource, ID_Post, tMessage, tImage, tName, agent_handle, ddate) VALUES ('fb_post_cr', '" & Request.QueryString("IDREF") & "', '" & ASPxHtmlEditor1.Html & "', '', '" & Request.QueryString("Name") & "', '" & Session("username") & "', GETDATE())"
+                    Com = New SqlCommand(insert, Con)
+                    Con.Open()
+                    Com.ExecuteNonQuery()
+                    Con.Close()
+                    'End If
+
+                    Dim insertlog As String = "INSERT INTO mslog (Username, Flag, Data, datetime) VALUES ('" & Session("username") & "', 'Handle Comment', '" & ASPxHtmlEditor1.Html & "', GETDATE())"
+                    Com = New SqlCommand(insertlog, Con)
+                    Con.Open()
+                    Com.ExecuteNonQuery()
+                    Con.Close()
+
+                    Dim updateflag As String = "update GetSosmed_Two set C_flagread = '1' where C_ID_Post = '" & Request.QueryString("IDREF") & "' "
+                    Com = New SqlCommand(updateflag, Con)
+                    Con.Open()
+                    Com.ExecuteNonQuery()
+                    Con.Close()
+
+                ElseIf Session("source") = "fb_reply" Then
+                    'If uploadfile.HasFile Then
+                    '    Try
+                    '        uploadfile.SaveAs(path + uploadfile.FileName)
+                    '    Catch ex As Exception
+                    '        Response.Write(DirectCast("", String))
+                    '    End Try
+                    '    Dim insert As String = "INSERT INTO sosmed_post (dsource, ID_Post, tMessage, tImage, tName, agent_handle, ddate) VALUES ('fb_post_cr', '" & Request.QueryString("id") & "', '" & ASPxHtmlEditor1.Html & "', '" & path + uploadfile.FileName & "', '" & Request.QueryString("Name") & "', '" & Session("username") & "', GETDATE())"
+                    '    Com = New SqlCommand(insert, Con)
+                    '    Con.Open()
+                    '    Com.ExecuteNonQuery()
+                    '    Con.Close()
+                    'Else
+                    Dim insert As String = "INSERT INTO sosmed_post (dsource, ID_Post, tMessage, tImage, tName, agent_handle, ddate) VALUES ('fb_post_cr', '" & Request.QueryString("IDREF") & "', '" & ASPxHtmlEditor1.Html & "', '', '" & Request.QueryString("Name") & "', '" & Session("username") & "', GETDATE())"
+                    Com = New SqlCommand(insert, Con)
+                    Con.Open()
+                    Com.ExecuteNonQuery()
+                    Con.Close()
+                    'End If
+
+                    Dim insertlog As String = "INSERT INTO mslog (Username, Flag, Data, datetime) VALUES ('" & Session("username") & "', 'Handle Reply', '" & ASPxHtmlEditor1.Html & "', GETDATE())"
+                    Com = New SqlCommand(insertlog, Con)
+                    Con.Open()
+                    Com.ExecuteNonQuery()
+                    Con.Close()
+
+                    Dim updateflag As String = "update GetSosmed_Three set R_flagread = '1' where R_ID_Post = '" & Request.QueryString("IDREF") & "' "
+                    Com = New SqlCommand(updateflag, Con)
+                    Con.Open()
+                    Com.ExecuteNonQuery()
+                    Con.Close()
+
+                    'If uploadfile.HasFile Then
+                    '    Try
+                    '        uploadfile.SaveAs(path + uploadfile.FileName)
+                    '    Catch ex As Exception
+                    '        Response.Write(DirectCast("", String))
+                    '    End Try
+                    '    Dim insert As String = "INSERT INTO sosmed_post (dsource, ID_Post, tMessage, tImage, tName, agent_handle, ddate) VALUES ('tw_sendDM', '" & Request.QueryString("id") & "', '" & ASPxHtmlEditor1.Html & "', '" & path + uploadfile.FileName & "', '" & Request.QueryString("Name") & "', '" & Session("username") & "', GETDATE())"
+                    '    Com = New SqlCommand(insert, Con)
+                    '    Con.Open()
+                    '    Com.ExecuteNonQuery()
+                    '    Con.Close()
+                    'Else
+
+
+                ElseIf Session("source") = "Inbox" Then
+                    'If uploadfile.HasFile Then
+                    '    Try
+                    '        uploadfile.SaveAs(path + uploadfile.FileName)
+                    '    Catch ex As Exception
+                    '        Response.Write(DirectCast("", String))
+                    '    End Try
+                    '    Dim insert As String = "INSERT INTO sosmed_post (dsource, ID_Post, tMessage, tImage, tName, agent_handle, ddate) VALUES ('fb_post_Inbox', '" & Request.QueryString("id") & "', '" & ASPxHtmlEditor1.Html & "', '" & path + uploadfile.FileName & "', '" & Request.QueryString("Name") & "', '" & Session("username") & "', GETDATE())"
+                    '    Com = New SqlCommand(insert, Con)
+                    '    Con.Open()
+                    '    Com.ExecuteNonQuery()
+                    '    Con.Close()
+                    'Else
+                    Dim insert As String = "INSERT INTO sosmed_post (dsource, ID_Post, tMessage, tImage, tName, agent_handle, ddate) VALUES ('fb_post_Inbox', '" & Request.QueryString("IDREF") & "', '" & ASPxHtmlEditor1.Html & "', '', '" & Request.QueryString("Name") & "', '" & Session("username") & "', GETDATE())"
+                    Com = New SqlCommand(insert, Con)
+                    Con.Open()
+                    Com.ExecuteNonQuery()
+                    Con.Close()
+                    'End If
+
+                    Dim insertlog As String = "INSERT INTO mslog (Username, Flag, Data, datetime) VALUES ('" & Session("username") & "', 'Handle Inbox', '" & ASPxHtmlEditor1.Html & "', GETDATE())"
+                    Com = New SqlCommand(insertlog, Con)
+                    Con.Open()
+                    Com.ExecuteNonQuery()
+                    Con.Close()
+
+                    Dim updateflag As String = "update GetSosmed_Inbox set P_flagread = '1' where P_ID_Post = '" & Request.QueryString("IDREF") & "' "
+                    Com = New SqlCommand(updateflag, Con)
+                    Con.Open()
+                    Com.ExecuteNonQuery()
+                    Con.Close()
+
+                End If
             End If
-
         Else
+            If Request.QueryString("ket") = "Twitter" Then
+                If Session("source") = "twMention" Then
+                    Dim insert As String = "INSERT INTO sosmed_post (fProcess, dsource, ID_Post, tMessage, tImage, tName, agent_handle, ddate) VALUES ('1', 'tw_reply', '" & Request.QueryString("IDREF") & "', '" & ASPxHtmlEditor1.Html & "', '', '" & Request.QueryString("Name") & "', '" & Session("username") & "', GETDATE())"
+                    Com = New SqlCommand(insert, Con)
+                    Con.Open()
+                    Com.ExecuteNonQuery()
+                    Con.Close()
+                    'End If
 
-            If Session("source") = "fb_Post" Then
+                    Dim insertlog As String = "INSERT INTO mslog (Username, Flag, Data, datetime) VALUES ('" & Session("username") & "', 'Handle Mention, No Posting', '" & ASPxHtmlEditor1.Html & "', GETDATE())"
+                    Com = New SqlCommand(insertlog, Con)
+                    Con.Open()
+                    Com.ExecuteNonQuery()
+                    Con.Close()
 
-                Dim insert As String = "INSERT INTO sosmed_post (dsource, ID_Post, tMessage, tImage, tName, agent_handle, ddate) VALUES ('fb_post_cr', '" & Request.QueryString("IDREF") & "', '" & ReplaceSpecialLetter(ASPxHtmlEditor1.Html) & "', '', '" & Request.QueryString("Name") & "', '" & Session("username") & "', GETDATE())"
-                Com = New SqlCommand(insert, Con)
-                Con.Open()
-                Com.ExecuteNonQuery()
-                Con.Close()
+                    Dim updateflag As String = "update GetSosmed_One set P_flagread = '1' where P_ID_Post = '" & Request.QueryString("IDREF") & "' "
+                    Com = New SqlCommand(updateflag, Con)
+                    Con.Open()
+                    Com.ExecuteNonQuery()
+                    Con.Close()
 
-                Dim insertlog As String = "INSERT INTO mslog (Username, Flag, Data, datetime) VALUES ('" & Session("username") & "', 'handle Post', '" & ReplaceSpecialLetter(ASPxHtmlEditor1.Html) & "', GETDATE())"
-                Com = New SqlCommand(insertlog, Con)
-                Con.Open()
-                Com.ExecuteNonQuery()
-                Con.Close()
+                ElseIf Session("source") = "tw_DM" Then
+                    Dim insert As String = "INSERT INTO sosmed_post (fProcess, dsource, ID_Post, tMessage, tImage, tName, agent_handle, ddate) VALUES ('1', 'tw_sendDM', '" & Request.QueryString("IDREF") & "', '" & ASPxHtmlEditor1.Html & "', '', '" & Request.QueryString("Name") & "', '" & Session("username") & "', GETDATE())"
+                    Com = New SqlCommand(insert, Con)
+                    Con.Open()
+                    Com.ExecuteNonQuery()
+                    Con.Close()
+                    'End If
 
-                Dim updateflag As String = "update GetSosmed_One set P_flagread = '1' where P_ID_Post = '" & Request.QueryString("IDREF") & "' "
-                Com = New SqlCommand(updateflag, Con)
-                Con.Open()
-                Com.ExecuteNonQuery()
-                Con.Close()
+                    Dim insertlog As String = "INSERT INTO mslog (Username, Flag, Data, datetime) VALUES ('" & Session("username") & "', 'Handle DM, No Posting', '" & ASPxHtmlEditor1.Html & "', GETDATE())"
+                    Com = New SqlCommand(insertlog, Con)
+                    Con.Open()
+                    Com.ExecuteNonQuery()
+                    Con.Close()
 
-            ElseIf Session("source") = "fb_comment" Then
+                    Dim updateflag As String = "update GetSosmed_One set P_flagread = '1' where P_ID_Post = '" & Request.QueryString("IDREF") & "' "
+                    Com = New SqlCommand(updateflag, Con)
+                    Con.Open()
+                    Com.ExecuteNonQuery()
+                    Con.Close()
+                End If
+                'If uploadfile.HasFile Then
+                '    Try
+                '        uploadfile.SaveAs(path + uploadfile.FileName)
+                '    Catch ex As Exception
+                '        Response.Write(DirectCast("", String))
+                '    End Try
+                '    Dim insert As String = "INSERT INTO sosmed_post (dsource, ID_Post, tMessage, tImage, tName, agent_handle, ddate) VALUES ('tw_reply', '" & Request.QueryString("id") & "', '" & ASPxHtmlEditor1.Html & "', '" & path + uploadfile.FileName & "', '" & Request.QueryString("Name") & "', '" & Session("username") & "', GETDATE())"
+                '    Com = New SqlCommand(insert, Con)
+                '    Con.Open()
+                '    Com.ExecuteNonQuery()
+                '    Con.Close()
+                'Else
 
-                Dim insert As String = "INSERT INTO sosmed_post (dsource, ID_Post, tMessage, tImage, tName, agent_handle, ddate) VALUES ('fb_post_cr', '" & Request.QueryString("IDREF") & "', '" & ReplaceSpecialLetter(ASPxHtmlEditor1.Html) & "', '', '" & Request.QueryString("Name") & "', '" & Session("username") & "', GETDATE())"
-                Com = New SqlCommand(insert, Con)
-                Con.Open()
-                Com.ExecuteNonQuery()
-                Con.Close()
+            Else
+                If Session("source") = "fb_Post" Then
+                    'If uploadfile.HasFile Then
+                    '    Try
+                    '        uploadfile.SaveAs(path + uploadfile.FileName)
+                    '    Catch ex As Exception
+                    '        Response.Write(DirectCast("", String))
+                    '    End Try
+                    '    Dim insert As String = "INSERT INTO sosmed_post (dsource, ID_Post, tMessage, tImage, tName, agent_handle, ddate) VALUES ('fb_post_cr', '" & Request.QueryString("id") & "', '" & ASPxHtmlEditor1.Html & "', '" & path + uploadfile.FileName & "', '" & Request.QueryString("Name") & "', '" & Session("username") & "', GETDATE())"
+                    '    Com = New SqlCommand(insert, Con)
+                    '    Con.Open()
+                    '    Com.ExecuteNonQuery()
+                    '    Con.Close()
+                    'Else
+                    Dim insert As String = "INSERT INTO sosmed_post (fProcess, dsource, ID_Post, tMessage, tImage, tName, agent_handle, ddate) VALUES ('1', 'fb_post_cr', '" & Request.QueryString("IDREF") & "', '" & ASPxHtmlEditor1.Html & "', '', '" & Request.QueryString("Name") & "', '" & Session("username") & "', GETDATE())"
+                    Com = New SqlCommand(insert, Con)
+                    Con.Open()
+                    Com.ExecuteNonQuery()
+                    Con.Close()
+                    'End If
 
-                Dim insertlog As String = "INSERT INTO mslog (Username, Flag, Data, datetime) VALUES ('" & Session("username") & "', 'Handle Comment', '" & ReplaceSpecialLetter(ASPxHtmlEditor1.Html) & "', GETDATE())"
-                Com = New SqlCommand(insertlog, Con)
-                Con.Open()
-                Com.ExecuteNonQuery()
-                Con.Close()
+                    Dim insertlog As String = "INSERT INTO mslog (Username, Flag, Data, datetime) VALUES ('" & Session("username") & "', 'handle Post', '" & ASPxHtmlEditor1.Html & "', GETDATE())"
+                    Com = New SqlCommand(insertlog, Con)
+                    Con.Open()
+                    Com.ExecuteNonQuery()
+                    Con.Close()
 
-                Dim updateflag As String = "update GetSosmed_Two set C_flagread = '1' where C_ID_Post = '" & Request.QueryString("IDREF") & "' "
-                Com = New SqlCommand(updateflag, Con)
-                Con.Open()
-                Com.ExecuteNonQuery()
-                Con.Close()
+                    Dim updateflag As String = "update GetSosmed_One set P_flagread = '1' where P_ID_Post = '" & Request.QueryString("IDREF") & "' "
+                    Com = New SqlCommand(updateflag, Con)
+                    Con.Open()
+                    Com.ExecuteNonQuery()
+                    Con.Close()
 
-            ElseIf Session("source") = "fb_reply" Then
+                ElseIf Session("source") = "fb_comment" Then
+                    'If uploadfile.HasFile Then
+                    '    Try
+                    '        uploadfile.SaveAs(path + uploadfile.FileName)
+                    '    Catch ex As Exception
+                    '        Response.Write(DirectCast("", String))
+                    '    End Try
+                    '    Dim insert As String = "INSERT INTO sosmed_post (dsource, ID_Post, tMessage, tImage, tName, agent_handle, ddate) VALUES ('fb_post_cr', '" & Request.QueryString("id") & "', '" & ASPxHtmlEditor1.Html & "', '" & path + uploadfile.FileName & "', '" & Request.QueryString("Name") & "', '" & Session("username") & "', GETDATE())"
+                    '    Com = New SqlCommand(insert, Con)
+                    '    Con.Open()
+                    '    Com.ExecuteNonQuery()
+                    '    Con.Close()
+                    'Else
+                    Dim insert As String = "INSERT INTO sosmed_post (fProcess, dsource, ID_Post, tMessage, tImage, tName, agent_handle, ddate) VALUES ('1','fb_post_cr', '" & Request.QueryString("IDREF") & "', '" & ASPxHtmlEditor1.Html & "', '', '" & Request.QueryString("Name") & "', '" & Session("username") & "', GETDATE())"
+                    Com = New SqlCommand(insert, Con)
+                    Con.Open()
+                    Com.ExecuteNonQuery()
+                    Con.Close()
+                    'End If
 
-                Dim insert As String = "INSERT INTO sosmed_post (dsource, ID_Post, tMessage, tImage, tName, agent_handle, ddate) VALUES ('fb_post_cr', '" & Request.QueryString("IDREF") & "', '" & ReplaceSpecialLetter(ASPxHtmlEditor1.Html) & "', '', '" & Request.QueryString("Name") & "', '" & Session("username") & "', GETDATE())"
-                Com = New SqlCommand(insert, Con)
-                Con.Open()
-                Com.ExecuteNonQuery()
-                Con.Close()
-                'End If
+                    Dim insertlog As String = "INSERT INTO mslog (Username, Flag, Data, datetime) VALUES ('" & Session("username") & "', 'Handle Comment', '" & ASPxHtmlEditor1.Html & "', GETDATE())"
+                    Com = New SqlCommand(insertlog, Con)
+                    Con.Open()
+                    Com.ExecuteNonQuery()
+                    Con.Close()
 
-                Dim insertlog As String = "INSERT INTO mslog (Username, Flag, Data, datetime) VALUES ('" & Session("username") & "', 'Handle Reply', '" & ReplaceSpecialLetter(ASPxHtmlEditor1.Html) & "', GETDATE())"
-                Com = New SqlCommand(insertlog, Con)
-                Con.Open()
-                Com.ExecuteNonQuery()
-                Con.Close()
+                    Dim updateflag As String = "update GetSosmed_Two set C_flagread = '1' where C_ID_Post = '" & Request.QueryString("IDREF") & "' "
+                    Com = New SqlCommand(updateflag, Con)
+                    Con.Open()
+                    Com.ExecuteNonQuery()
+                    Con.Close()
 
-                Dim updateflag As String = "update GetSosmed_Three set R_flagread = '1' where R_ID_Post = '" & Request.QueryString("IDREF") & "' "
-                Com = New SqlCommand(updateflag, Con)
-                Con.Open()
-                Com.ExecuteNonQuery()
-                Con.Close()
+                ElseIf Session("source") = "fb_reply" Then
+                    'If uploadfile.HasFile Then
+                    '    Try
+                    '        uploadfile.SaveAs(path + uploadfile.FileName)
+                    '    Catch ex As Exception
+                    '        Response.Write(DirectCast("", String))
+                    '    End Try
+                    '    Dim insert As String = "INSERT INTO sosmed_post (dsource, ID_Post, tMessage, tImage, tName, agent_handle, ddate) VALUES ('fb_post_cr', '" & Request.QueryString("id") & "', '" & ASPxHtmlEditor1.Html & "', '" & path + uploadfile.FileName & "', '" & Request.QueryString("Name") & "', '" & Session("username") & "', GETDATE())"
+                    '    Com = New SqlCommand(insert, Con)
+                    '    Con.Open()
+                    '    Com.ExecuteNonQuery()
+                    '    Con.Close()
+                    'Else
+                    Dim insert As String = "INSERT INTO sosmed_post (fProcess, dsource, ID_Post, tMessage, tImage, tName, agent_handle, ddate) VALUES ('1', 'fb_post_cr', '" & Request.QueryString("IDREF") & "', '" & ASPxHtmlEditor1.Html & "', '', '" & Request.QueryString("Name") & "', '" & Session("username") & "', GETDATE())"
+                    Com = New SqlCommand(insert, Con)
+                    Con.Open()
+                    Com.ExecuteNonQuery()
+                    Con.Close()
+                    'End If
 
-            ElseIf Session("source") = "Inbox" Then
+                    Dim insertlog As String = "INSERT INTO mslog (Username, Flag, Data, datetime) VALUES ('" & Session("username") & "', 'Handle Reply', '" & ASPxHtmlEditor1.Html & "', GETDATE())"
+                    Com = New SqlCommand(insertlog, Con)
+                    Con.Open()
+                    Com.ExecuteNonQuery()
+                    Con.Close()
 
-                Dim insert As String = "INSERT INTO sosmed_post (dsource, ID_Post, tMessage, tImage, tName, agent_handle, ddate) VALUES ('fb_post_Inbox', '" & Request.QueryString("IDREF") & "', '" & ReplaceSpecialLetter(ASPxHtmlEditor1.Html) & "', '', '" & Request.QueryString("Name") & "', '" & Session("username") & "', GETDATE())"
-                Com = New SqlCommand(insert, Con)
-                Con.Open()
-                Com.ExecuteNonQuery()
-                Con.Close()
-                'End If
+                    Dim updateflag As String = "update GetSosmed_Three set R_flagread = '1' where R_ID_Post = '" & Request.QueryString("IDREF") & "' "
+                    Com = New SqlCommand(updateflag, Con)
+                    Con.Open()
+                    Com.ExecuteNonQuery()
+                    Con.Close()
 
-                Dim insertlog As String = "INSERT INTO mslog (Username, Flag, Data, datetime) VALUES ('" & Session("username") & "', 'Handle Inbox', '" & ReplaceSpecialLetter(ASPxHtmlEditor1.Html) & "', GETDATE())"
-                Com = New SqlCommand(insertlog, Con)
-                Con.Open()
-                Com.ExecuteNonQuery()
-                Con.Close()
+                    'If uploadfile.HasFile Then
+                    '    Try
+                    '        uploadfile.SaveAs(path + uploadfile.FileName)
+                    '    Catch ex As Exception
+                    '        Response.Write(DirectCast("", String))
+                    '    End Try
+                    '    Dim insert As String = "INSERT INTO sosmed_post (dsource, ID_Post, tMessage, tImage, tName, agent_handle, ddate) VALUES ('tw_sendDM', '" & Request.QueryString("id") & "', '" & ASPxHtmlEditor1.Html & "', '" & path + uploadfile.FileName & "', '" & Request.QueryString("Name") & "', '" & Session("username") & "', GETDATE())"
+                    '    Com = New SqlCommand(insert, Con)
+                    '    Con.Open()
+                    '    Com.ExecuteNonQuery()
+                    '    Con.Close()
+                    'Else
 
-                Dim updateflag As String = "update GetSosmed_Inbox set P_flagread = '1' where P_ID_Post = '" & Request.QueryString("IDREF") & "' "
-                Com = New SqlCommand(updateflag, Con)
-                Con.Open()
-                Com.ExecuteNonQuery()
-                Con.Close()
 
+                ElseIf Session("source") = "Inbox" Then
+                    'If uploadfile.HasFile Then
+                    '    Try
+                    '        uploadfile.SaveAs(path + uploadfile.FileName)
+                    '    Catch ex As Exception
+                    '        Response.Write(DirectCast("", String))
+                    '    End Try
+                    '    Dim insert As String = "INSERT INTO sosmed_post (dsource, ID_Post, tMessage, tImage, tName, agent_handle, ddate) VALUES ('fb_post_Inbox', '" & Request.QueryString("id") & "', '" & ASPxHtmlEditor1.Html & "', '" & path + uploadfile.FileName & "', '" & Request.QueryString("Name") & "', '" & Session("username") & "', GETDATE())"
+                    '    Com = New SqlCommand(insert, Con)
+                    '    Con.Open()
+                    '    Com.ExecuteNonQuery()
+                    '    Con.Close()
+                    'Else
+                    Dim insert As String = "INSERT INTO sosmed_post (fProcess, dsource, ID_Post, tMessage, tImage, tName, agent_handle, ddate) VALUES ('1', 'fb_post_Inbox', '" & Request.QueryString("IDREF") & "', '" & ASPxHtmlEditor1.Html & "', '', '" & Request.QueryString("Name") & "', '" & Session("username") & "', GETDATE())"
+                    Com = New SqlCommand(insert, Con)
+                    Con.Open()
+                    Com.ExecuteNonQuery()
+                    Con.Close()
+                    'End If
+
+                    Dim insertlog As String = "INSERT INTO mslog (Username, Flag, Data, datetime) VALUES ('" & Session("username") & "', 'Handle Inbox', '" & ASPxHtmlEditor1.Html & "', GETDATE())"
+                    Com = New SqlCommand(insertlog, Con)
+                    Con.Open()
+                    Com.ExecuteNonQuery()
+                    Con.Close()
+
+                    Dim updateflag As String = "update GetSosmed_Inbox set P_flagread = '1' where P_ID_Post = '" & Request.QueryString("IDREF") & "' "
+                    Com = New SqlCommand(updateflag, Con)
+                    Con.Open()
+                    Com.ExecuteNonQuery()
+                    Con.Close()
+
+                End If
             End If
         End If
+
         ASPxHtmlEditor1.Html = ""
+        'end save sosmed
     End Sub
 End Class

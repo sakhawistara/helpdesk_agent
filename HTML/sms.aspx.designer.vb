@@ -21,4 +21,13 @@ Partial Public Class sms
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents ltr_email As Global.System.Web.UI.WebControls.Literal
+
+    '''<summary>
+    '''ltr_detil control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents ltr_detil As Global.System.Web.UI.WebControls.Literal
 End Class

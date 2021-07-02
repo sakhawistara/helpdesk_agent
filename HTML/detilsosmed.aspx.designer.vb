@@ -92,7 +92,7 @@ Partial Public Class detilsosmed
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents callbackPanelX As Global.DevExpress.Web.ASPxCallbackPanel.ASPxCallbackPanel
+    Protected WithEvents callbackPanelX As Global.DevExpress.Web.ASPxHtmlEditor.ASPxCallbackPanel
 
     '''<summary>
     '''PanelContent1 control.
@@ -101,7 +101,7 @@ Partial Public Class detilsosmed
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents PanelContent1 As Global.DevExpress.Web.ASPxPanel.PanelContent
+    Protected WithEvents PanelContent1 As Global.DevExpress.Web.ASPxHtmlEditor.PanelContent
 
     '''<summary>
     '''IDKamus control.
@@ -128,7 +128,7 @@ Partial Public Class detilsosmed
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents cmb_source_type As Global.DevExpress.Web.ASPxEditors.ASPxComboBox
+    Protected WithEvents cmb_source_type As Global.DevExpress.Web.ASPxHtmlEditor.ASPxComboBox
 
     '''<summary>
     '''rqr_source_type control.
@@ -155,7 +155,7 @@ Partial Public Class detilsosmed
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents cmb_group_type As Global.DevExpress.Web.ASPxEditors.ASPxComboBox
+    Protected WithEvents cmb_group_type As Global.DevExpress.Web.ASPxHtmlEditor.ASPxComboBox
 
     '''<summary>
     '''rqr_group_type control.
@@ -182,7 +182,7 @@ Partial Public Class detilsosmed
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents Category As Global.DevExpress.Web.ASPxEditors.ASPxComboBox
+    Protected WithEvents Category As Global.DevExpress.Web.ASPxHtmlEditor.ASPxComboBox
 
     '''<summary>
     '''CategoryHidden control.
@@ -200,7 +200,7 @@ Partial Public Class detilsosmed
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents SubCategoryIII As Global.DevExpress.Web.ASPxEditors.ASPxComboBox
+    Protected WithEvents SubCategoryIII As Global.DevExpress.Web.ASPxHtmlEditor.ASPxComboBox
 
     '''<summary>
     '''RequiredFieldValidator2 control.
@@ -218,7 +218,7 @@ Partial Public Class detilsosmed
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents SubCategoryI As Global.DevExpress.Web.ASPxEditors.ASPxComboBox
+    Protected WithEvents SubCategoryI As Global.DevExpress.Web.ASPxHtmlEditor.ASPxComboBox
 
     '''<summary>
     '''SubCatI control.
@@ -236,7 +236,7 @@ Partial Public Class detilsosmed
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents SubCategoryII As Global.DevExpress.Web.ASPxEditors.ASPxComboBox
+    Protected WithEvents SubCategoryII As Global.DevExpress.Web.ASPxHtmlEditor.ASPxComboBox
 
     '''<summary>
     '''SubCatII control.
@@ -254,7 +254,7 @@ Partial Public Class detilsosmed
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents cmb_priority As Global.DevExpress.Web.ASPxEditors.ASPxComboBox
+    Protected WithEvents cmb_priority As Global.DevExpress.Web.ASPxHtmlEditor.ASPxComboBox
 
     '''<summary>
     '''sql_priority control.
@@ -272,7 +272,7 @@ Partial Public Class detilsosmed
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents cmb_severity As Global.DevExpress.Web.ASPxEditors.ASPxComboBox
+    Protected WithEvents cmb_severity As Global.DevExpress.Web.ASPxHtmlEditor.ASPxComboBox
 
     '''<summary>
     '''sql_severity control.
@@ -290,7 +290,7 @@ Partial Public Class detilsosmed
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents cmb_status As Global.DevExpress.Web.ASPxEditors.ASPxComboBox
+    Protected WithEvents cmb_status As Global.DevExpress.Web.ASPxHtmlEditor.ASPxComboBox
 
     '''<summary>
     '''RequiredFieldValidator1 control.
@@ -488,7 +488,7 @@ Partial Public Class detilsosmed
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents chk_posting As Global.DevExpress.Web.ASPxEditors.ASPxCheckBox
+    Protected WithEvents chk_posting As Global.DevExpress.Web.ASPxHtmlEditor.ASPxCheckBox
 
     '''<summary>
     '''Div_Button control.
@@ -632,7 +632,7 @@ Partial Public Class detilsosmed
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents cmb_Personal_Support As Global.DevExpress.Web.ASPxEditors.ASPxComboBox
+    Protected WithEvents cmb_Personal_Support As Global.DevExpress.Web.ASPxHtmlEditor.ASPxComboBox
 
     '''<summary>
     '''sql_cmb_Personal_Support control.
